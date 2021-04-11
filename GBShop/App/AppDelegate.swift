@@ -10,12 +10,92 @@ import UIKit
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
-
+    var window: UIWindow?
+    let requestFactory = RequestFactory()
+    var hasError: Bool = false
+    
+    func doRegister() {
+        let register = requestFactory.makeRegistrationRequestFactory()
+        register.register(
+            userId: 123,
+            userName: "Alla",
+            password: "qwerty",
+            email: "prirez@bk.ru",
+            gender: "female",
+            creditCard: "1234 5678 9012 3456",
+            bio: "???"
+        ) { [weak self] response in
+            guard let self = self else {return}
+            switch response.result {
+            case .success(let result):
+                print(result)
+                self.doLogin()
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
+    func doLogin() {
+        let auth = requestFactory.makeAuthRequestFactory()
+        auth.login(
+            userName: "Alla",
+            password: "qwerty"
+        ) { [weak self] response in
+            guard let self = self else {return}
+            switch response.result {
+            case .success(let login):
+                print(login)
+                self.doChangeRegRecord()
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
+    func doChangeRegRecord() {
+        let register = requestFactory.makeRegistrationRequestFactory()
+        register.changeRegistrationRecord(
+            userId: 123,
+            userName: "Alla",
+            password: "SuP3RS3cR3t",
+            email: "prirez@bk.ru",
+            gender: "female",
+            creditCard: "1234 5678 9012 3456",
+            bio: "???"
+        ) { [weak self] response in
+            guard let self = self else {return}
+            switch response.result {
+            case .success(let result):
+                print(result)
+                self.doLogout()
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
+    func doLogout() {
+        let auth = requestFactory.makeAuthRequestFactory()
+        auth.logout(
+            userId: 123
+        ) { response in
+            switch response.result {
+            case .success(let logout):
+                print(logout)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        doRegister()
+
         return true
     }
+
 
     // MARK: UISceneSession Lifecycle
 
