@@ -10,7 +10,6 @@
 		FE13D1D3261DAFD000CB832F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE13D1D2261DAFD000CB832F /* AppDelegate.swift */; };
 		FE13D1D5261DAFD000CB832F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE13D1D4261DAFD000CB832F /* SceneDelegate.swift */; };
 		FE13D1D7261DAFD000CB832F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE13D1D6261DAFD000CB832F /* ViewController.swift */; };
-		FE13D1DA261DAFD000CB832F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE13D1D8261DAFD000CB832F /* Main.storyboard */; };
 		FE13D1DC261DAFD300CB832F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE13D1DB261DAFD300CB832F /* Assets.xcassets */; };
 		FE13D1DF261DAFD300CB832F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE13D1DD261DAFD300CB832F /* LaunchScreen.storyboard */; };
 		FE13D1EA261DAFD300CB832F /* GBShopTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE13D1E9261DAFD300CB832F /* GBShopTests.swift */; };
@@ -18,14 +17,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		FE13D1E6261DAFD300CB832F /* PBXContainerItemProxy */ = {
+		FE13D266261DF94A00CB832F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = FE13D1C7261DAFD000CB832F /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = FE13D1CE261DAFD000CB832F;
 			remoteInfo = GBShop;
 		};
-		FE13D1F1261DAFD300CB832F /* PBXContainerItemProxy */ = {
+		FE13D268261DF94E00CB832F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = FE13D1C7261DAFD000CB832F /* Project object */;
 			proxyType = 1;
@@ -39,16 +38,15 @@
 		FE13D1D2261DAFD000CB832F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FE13D1D4261DAFD000CB832F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		FE13D1D6261DAFD000CB832F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		FE13D1D9261DAFD000CB832F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FE13D1DB261DAFD300CB832F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FE13D1DE261DAFD300CB832F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		FE13D1E0261DAFD300CB832F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FE13D1E5261DAFD300CB832F /* GBShopTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GBShopTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE13D1E9261DAFD300CB832F /* GBShopTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GBShopTests.swift; sourceTree = "<group>"; };
 		FE13D1EB261DAFD300CB832F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FE13D1F0261DAFD300CB832F /* GBShopUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GBShopUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE13D1F4261DAFD300CB832F /* GBShopUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GBShopUITests.swift; sourceTree = "<group>"; };
 		FE13D1F6261DAFD300CB832F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FE13D251261DEF7600CB832F /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,13 +97,12 @@
 		FE13D1D1261DAFD000CB832F /* GBShop */ = {
 			isa = PBXGroup;
 			children = (
-				FE13D1D2261DAFD000CB832F /* AppDelegate.swift */,
+				FE13D214261DE7E700CB832F /* App */,
+				FE13D219261DE85E00CB832F /* Core */,
+				FE13D21A261DE86F00CB832F /* Resources */,
+				FE13D21B261DE87E00CB832F /* Environments */,
 				FE13D1D4261DAFD000CB832F /* SceneDelegate.swift */,
 				FE13D1D6261DAFD000CB832F /* ViewController.swift */,
-				FE13D1D8261DAFD000CB832F /* Main.storyboard */,
-				FE13D1DB261DAFD300CB832F /* Assets.xcassets */,
-				FE13D1DD261DAFD300CB832F /* LaunchScreen.storyboard */,
-				FE13D1E0261DAFD300CB832F /* Info.plist */,
 			);
 			path = GBShop;
 			sourceTree = "<group>";
@@ -126,6 +123,70 @@
 				FE13D1F6261DAFD300CB832F /* Info.plist */,
 			);
 			path = GBShopUITests;
+			sourceTree = "<group>";
+		};
+		FE13D214261DE7E700CB832F /* App */ = {
+			isa = PBXGroup;
+			children = (
+				FE13D1D2261DAFD000CB832F /* AppDelegate.swift */,
+				FE13D215261DE7F500CB832F /* BusinessLogic */,
+				FE13D216261DE80700CB832F /* Entity */,
+				FE13D217261DE81C00CB832F /* Assembly */,
+				FE13D218261DE82A00CB832F /* Flows */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		FE13D215261DE7F500CB832F /* BusinessLogic */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = BusinessLogic;
+			sourceTree = "<group>";
+		};
+		FE13D216261DE80700CB832F /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		FE13D217261DE81C00CB832F /* Assembly */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Assembly;
+			sourceTree = "<group>";
+		};
+		FE13D218261DE82A00CB832F /* Flows */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Flows;
+			sourceTree = "<group>";
+		};
+		FE13D219261DE85E00CB832F /* Core */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		FE13D21A261DE86F00CB832F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				FE13D1DB261DAFD300CB832F /* Assets.xcassets */,
+				FE13D1DD261DAFD300CB832F /* LaunchScreen.storyboard */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		FE13D21B261DE87E00CB832F /* Environments */ = {
+			isa = PBXGroup;
+			children = (
+				FE13D251261DEF7600CB832F /* Info.plist */,
+			);
+			path = Environments;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -159,7 +220,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				FE13D1E7261DAFD300CB832F /* PBXTargetDependency */,
+				FE13D267261DF94A00CB832F /* PBXTargetDependency */,
 			);
 			name = GBShopTests;
 			productName = GBShopTests;
@@ -177,7 +238,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				FE13D1F2261DAFD300CB832F /* PBXTargetDependency */,
+				FE13D269261DF94E00CB832F /* PBXTargetDependency */,
 			);
 			name = GBShopUITests;
 			productName = GBShopUITests;
@@ -233,7 +294,6 @@
 			files = (
 				FE13D1DF261DAFD300CB832F /* LaunchScreen.storyboard in Resources */,
 				FE13D1DC261DAFD300CB832F /* Assets.xcassets in Resources */,
-				FE13D1DA261DAFD000CB832F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -283,27 +343,19 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		FE13D1E7261DAFD300CB832F /* PBXTargetDependency */ = {
+		FE13D267261DF94A00CB832F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = FE13D1CE261DAFD000CB832F /* GBShop */;
-			targetProxy = FE13D1E6261DAFD300CB832F /* PBXContainerItemProxy */;
+			targetProxy = FE13D266261DF94A00CB832F /* PBXContainerItemProxy */;
 		};
-		FE13D1F2261DAFD300CB832F /* PBXTargetDependency */ = {
+		FE13D269261DF94E00CB832F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = FE13D1CE261DAFD000CB832F /* GBShop */;
-			targetProxy = FE13D1F1261DAFD300CB832F /* PBXContainerItemProxy */;
+			targetProxy = FE13D268261DF94E00CB832F /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		FE13D1D8261DAFD000CB832F /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				FE13D1D9261DAFD000CB832F /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		FE13D1DD261DAFD300CB832F /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -437,7 +489,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = GBShop/Info.plist;
+				INFOPLIST_FILE = GBShop/Environments/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -455,7 +507,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = GBShop/Info.plist;
+				INFOPLIST_FILE = GBShop/Environments/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
