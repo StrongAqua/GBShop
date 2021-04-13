@@ -9,6 +9,11 @@ import Foundation
 import Alamofire
 
 class RequestFactory {
+    let baseUrl: URL
+    
+    init(baseUrl: URL) {
+        self.baseUrl = baseUrl
+    }
     
     func makeErrorParser() -> AbstractErrorParser {
         return ErrorParser()
@@ -26,16 +31,16 @@ class RequestFactory {
     
     func makeAuthRequestFactory() -> AuthRequestFactory {
         let errorParser = makeErrorParser()
-        return Auth(errorParser: errorParser, sessionManager: commonSession, queue: sessionQueue)
+        return Auth(baseUrl: baseUrl, errorParser: errorParser, sessionManager: commonSession, queue: sessionQueue)
     }
 
     func makeRegistrationRequestFactory() -> RegistrationRequestFactory {
         let errorParser = makeErrorParser()
-        return Registration(errorParser: errorParser, sessionManager: commonSession, queue: sessionQueue)
+        return Registration(baseUrl: baseUrl, errorParser: errorParser, sessionManager: commonSession, queue: sessionQueue)
     }
     
     func makeGoodsRequestFactory() -> GoodsRequestFactory {
         let errorParser = makeErrorParser()
-        return Goods(errorParser: errorParser, sessionManager: commonSession, queue: sessionQueue)
+        return Goods(baseUrl: baseUrl, errorParser: errorParser, sessionManager: commonSession, queue: sessionQueue)
     }
 }

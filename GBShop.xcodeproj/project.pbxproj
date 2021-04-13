@@ -35,6 +35,8 @@
 		FE8BF0A52625B5AC006DDA46 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8BF0A42625B5AC006DDA46 /* Product.swift */; };
 		FE8BF0AB2625BE95006DDA46 /* Goods.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8BF0AA2625BE95006DDA46 /* Goods.swift */; };
 		FE8BF0B32625BEB9006DDA46 /* GoodsRequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8BF0B22625BEB9006DDA46 /* GoodsRequestFactory.swift */; };
+		FE8BF0CF26260649006DDA46 /* APITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8BF0CE26260649006DDA46 /* APITests.swift */; };
+		FE8BF0DB2626155E006DDA46 /* APITests_Negative.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8BF0DA2626155E006DDA46 /* APITests_Negative.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +97,8 @@
 		FE8BF0A42625B5AC006DDA46 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		FE8BF0AA2625BE95006DDA46 /* Goods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Goods.swift; sourceTree = "<group>"; };
 		FE8BF0B22625BEB9006DDA46 /* GoodsRequestFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodsRequestFactory.swift; sourceTree = "<group>"; };
+		FE8BF0CE26260649006DDA46 /* APITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APITests.swift; sourceTree = "<group>"; };
+		FE8BF0DA2626155E006DDA46 /* APITests_Negative.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APITests_Negative.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,8 +189,10 @@
 			isa = PBXGroup;
 			children = (
 				FE8BF08D2625AB05006DDA46 /* ResponseCodableTests.swift */,
+				FE8BF0CE26260649006DDA46 /* APITests.swift */,
 				FE13D1E9261DAFD300CB832F /* GBShopTests.swift */,
 				FE13D1EB261DAFD300CB832F /* Info.plist */,
+				FE8BF0DA2626155E006DDA46 /* APITests_Negative.swift */,
 			);
 			path = GBShopTests;
 			sourceTree = "<group>";
@@ -614,7 +620,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				FE13D1EA261DAFD300CB832F /* GBShopTests.swift in Sources */,
+				FE8BF0DB2626155E006DDA46 /* APITests_Negative.swift in Sources */,
 				FE8BF08E2625AB05006DDA46 /* ResponseCodableTests.swift in Sources */,
+				FE8BF0CF26260649006DDA46 /* APITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,15 +9,17 @@ import Foundation
 import Alamofire
 
 class Goods: AbstractRequestFactory {
+    var baseUrl: URL
     let errorParser: AbstractErrorParser
     let sessionManager: Session
     let queue: DispatchQueue
-    let baseUrl = URL(string: "https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses/")!
     
     init(
+        baseUrl: URL,
         errorParser: AbstractErrorParser,
         sessionManager: Session,
         queue: DispatchQueue = DispatchQueue.global(qos: .utility)) {
+        self.baseUrl = baseUrl
         self.errorParser = errorParser
         self.sessionManager = sessionManager
         self.queue = queue
@@ -25,8 +27,8 @@ class Goods: AbstractRequestFactory {
 }
 
 extension Goods: GoodsRequestFactory {
-    func getCatalog(completionHandler: @escaping (AFDataResponse<[Product]>) -> Void) {
-        let requestModel = CatalogData(baseUrl: baseUrl)
+    func getCatalog(pageNumber: Int, idCategory: Int, completionHandler: @escaping (AFDataResponse<[Product]>) -> Void) {
+        let requestModel = CatalogData(baseUrl: baseUrl, pageNumber: pageNumber, idCategory: idCategory)
         self.request(request: requestModel, completionHandler: completionHandler)
     }
     
@@ -45,7 +47,15 @@ extension Goods {
         let method: HTTPMethod = .get
         let path: String = "catalogData.json"
         
-        var parameters: Parameters?
+        let pageNumber: Int
+        let idCategory: Int
+
+        var parameters: Parameters? {
+            return [
+                "page_number": pageNumber,
+                "id_category": idCategory
+            ]
+        }
     }
 
     struct GoodById: RequestRouter {

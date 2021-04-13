@@ -9,6 +9,7 @@ import Foundation
 import Alamofire
 
 protocol AbstractRequestFactory {
+    var baseUrl: URL { get }
     var errorParser: AbstractErrorParser { get }
     var sessionManager: Session { get }
     var queue: DispatchQueue { get }

@@ -11,8 +11,9 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    let requestFactory = RequestFactory()
-    var hasError: Bool = false
+    let requestFactory = RequestFactory(
+        baseUrl: URL(string: "https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses/")!
+    )
     
     func doRegister() {
         let register = requestFactory.makeRegistrationRequestFactory()
@@ -68,7 +69,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             switch response.result {
             case .success(let result):
                 print(result)
-                self.getCatalog()
+                self.getCatalogPage(pageNumber: 1, idCategory: 1)
             case .failure(let error):
                 print(error.localizedDescription)
             }
@@ -89,14 +90,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
 
-    func getCatalog() {
+    func getCatalogPage(pageNumber: Int, idCategory: Int) {
         let goods = requestFactory.makeGoodsRequestFactory()
-        goods.getCatalog() { [weak self] response in
+        goods.getCatalog(pageNumber: pageNumber, idCategory: idCategory) { [weak self] response in
             guard let self = self else {return}
             switch response.result {
             case .success(let catalog):
                 print(catalog)
-                self.getProduct()
+                if (pageNumber < 2) {
+                    self.getCatalogPage(pageNumber: pageNumber + 1, idCategory: idCategory)
+                } else {
+                    self.getProduct()
+                }
             case .failure(let error):
                 print(error.localizedDescription)
             }
