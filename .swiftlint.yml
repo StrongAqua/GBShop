@@ -1,0 +1,24 @@
+excluded:
+  - Pods/*
+
+disabled_rules:
+  - empty_enum_arguments
+
+line_length:
+    warning: 500
+    error: 120000
+
+function_parameter_count:
+    warning: 10
+    error: 11
+
+type_body_length:
+    warning: 500
+    error: 1000
+
+identifier_name:   
+    max_length:
+        warning: 45
+        error: 60   
+    min_length:
+        warning: 1
