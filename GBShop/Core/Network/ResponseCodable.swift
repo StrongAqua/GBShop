@@ -16,6 +16,7 @@ class CustomDecodableSerializer<T: Decodable>: DataResponseSerializerProtocol {
     }
 
     func serialize(request: URLRequest?, response: HTTPURLResponse?, data: Data?, error: Error?) throws -> T {
+        debugPrint("REQUEST: \(String(decoding: request?.httpBody ?? Data(), as: UTF8.self))")
         debugPrint("RESPONSE: \(String(decoding: data ?? Data(), as: UTF8.self))")
         if let error = errorParser.parse(response: response, data: data, error: error) {
             throw error

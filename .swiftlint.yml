@@ -22,3 +22,6 @@ identifier_name:
         error: 60   
     min_length:
         warning: 1
+
+cyclomatic_complexity:
+  ignores_case_statements: true
