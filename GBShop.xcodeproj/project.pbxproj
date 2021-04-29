@@ -30,6 +30,13 @@
 		FE13D2F22623583500CB832F /* LogoutResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE13D2F12623583500CB832F /* LogoutResult.swift */; };
 		FE13D2F726235AA300CB832F /* RegistrationChangeResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE13D2F626235AA300CB832F /* RegistrationChangeResult.swift */; };
 		FE434446E30E180A5828E5AC /* Pods_GBShopTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 975DB5212979B020A4FA41E6 /* Pods_GBShopTests.framework */; };
+		FE8BF08E2625AB05006DDA46 /* ResponseCodableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8BF08D2625AB05006DDA46 /* ResponseCodableTests.swift */; };
+		FE8BF0932625B407006DDA46 /* ProductResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8BF0922625B407006DDA46 /* ProductResult.swift */; };
+		FE8BF0A52625B5AC006DDA46 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8BF0A42625B5AC006DDA46 /* Product.swift */; };
+		FE8BF0AB2625BE95006DDA46 /* Goods.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8BF0AA2625BE95006DDA46 /* Goods.swift */; };
+		FE8BF0B32625BEB9006DDA46 /* GoodsRequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8BF0B22625BEB9006DDA46 /* GoodsRequestFactory.swift */; };
+		FE8BF0CF26260649006DDA46 /* APITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8BF0CE26260649006DDA46 /* APITests.swift */; };
+		FE8BF0DB2626155E006DDA46 /* APITests_Negative.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8BF0DA2626155E006DDA46 /* APITests_Negative.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +92,13 @@
 		FE13D2EC2623553700CB832F /* RegistrationResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationResult.swift; sourceTree = "<group>"; };
 		FE13D2F12623583500CB832F /* LogoutResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutResult.swift; sourceTree = "<group>"; };
 		FE13D2F626235AA300CB832F /* RegistrationChangeResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationChangeResult.swift; sourceTree = "<group>"; };
+		FE8BF08D2625AB05006DDA46 /* ResponseCodableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseCodableTests.swift; sourceTree = "<group>"; };
+		FE8BF0922625B407006DDA46 /* ProductResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductResult.swift; sourceTree = "<group>"; };
+		FE8BF0A42625B5AC006DDA46 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		FE8BF0AA2625BE95006DDA46 /* Goods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Goods.swift; sourceTree = "<group>"; };
+		FE8BF0B22625BEB9006DDA46 /* GoodsRequestFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodsRequestFactory.swift; sourceTree = "<group>"; };
+		FE8BF0CE26260649006DDA46 /* APITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APITests.swift; sourceTree = "<group>"; };
+		FE8BF0DA2626155E006DDA46 /* APITests_Negative.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APITests_Negative.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,8 +188,11 @@
 		FE13D1E8261DAFD300CB832F /* GBShopTests */ = {
 			isa = PBXGroup;
 			children = (
+				FE8BF08D2625AB05006DDA46 /* ResponseCodableTests.swift */,
+				FE8BF0CE26260649006DDA46 /* APITests.swift */,
 				FE13D1E9261DAFD300CB832F /* GBShopTests.swift */,
 				FE13D1EB261DAFD300CB832F /* Info.plist */,
+				FE8BF0DA2626155E006DDA46 /* APITests_Negative.swift */,
 			);
 			path = GBShopTests;
 			sourceTree = "<group>";
@@ -212,11 +229,8 @@
 		FE13D216261DE80700CB832F /* Entity */ = {
 			isa = PBXGroup;
 			children = (
-				FE13D2A82623396C00CB832F /* LoginResult.swift */,
-				FE13D2AD2623397A00CB832F /* User.swift */,
-				FE13D2EC2623553700CB832F /* RegistrationResult.swift */,
-				FE13D2F12623583500CB832F /* LogoutResult.swift */,
-				FE13D2F626235AA300CB832F /* RegistrationChangeResult.swift */,
+				FE8BF09A2625B4EA006DDA46 /* Auth */,
+				FE8BF09B2625B4FD006DDA46 /* Goods */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -275,13 +289,52 @@
 		FE13D2952623376000CB832F /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				FE8BF0972625B44A006DDA46 /* Auth */,
+				FE8BF0A92625BE62006DDA46 /* Goods */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		FE8BF0972625B44A006DDA46 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
 				FE13D2962623378D00CB832F /* AuthRequestFactory.swift */,
 				FE13D29E262337D200CB832F /* Auth.swift */,
 				FE13D2A32623385200CB832F /* RequestFactory.swift */,
 				FE13D2E22623542A00CB832F /* Registration.swift */,
 				FE13D2E72623547900CB832F /* RegistrationRequestFactory.swift */,
 			);
-			path = Network;
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		FE8BF09A2625B4EA006DDA46 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				FE13D2A82623396C00CB832F /* LoginResult.swift */,
+				FE13D2AD2623397A00CB832F /* User.swift */,
+				FE13D2EC2623553700CB832F /* RegistrationResult.swift */,
+				FE13D2F12623583500CB832F /* LogoutResult.swift */,
+				FE13D2F626235AA300CB832F /* RegistrationChangeResult.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		FE8BF09B2625B4FD006DDA46 /* Goods */ = {
+			isa = PBXGroup;
+			children = (
+				FE8BF0922625B407006DDA46 /* ProductResult.swift */,
+				FE8BF0A42625B5AC006DDA46 /* Product.swift */,
+			);
+			path = Goods;
+			sourceTree = "<group>";
+		};
+		FE8BF0A92625BE62006DDA46 /* Goods */ = {
+			isa = PBXGroup;
+			children = (
+				FE8BF0AA2625BE95006DDA46 /* Goods.swift */,
+				FE8BF0B22625BEB9006DDA46 /* GoodsRequestFactory.swift */,
+			);
+			path = Goods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -539,21 +592,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE8BF0A52625B5AC006DDA46 /* Product.swift in Sources */,
 				FE13D2A42623385200CB832F /* RequestFactory.swift in Sources */,
 				FE13D291262332A800CB832F /* ErrorParser.swift in Sources */,
 				FE13D2BD26233BAA00CB832F /* ResponseCodable.swift in Sources */,
 				FE13D2F22623583500CB832F /* LogoutResult.swift in Sources */,
+				FE8BF0B32625BEB9006DDA46 /* GoodsRequestFactory.swift in Sources */,
 				FE13D2E82623547900CB832F /* RegistrationRequestFactory.swift in Sources */,
 				FE13D2972623378D00CB832F /* AuthRequestFactory.swift in Sources */,
 				FE13D2E32623542A00CB832F /* Registration.swift in Sources */,
 				FE13D2B826233A8A00CB832F /* AbstractRequestFactory.swift in Sources */,
 				FE13D1D3261DAFD000CB832F /* AppDelegate.swift in Sources */,
+				FE8BF0932625B407006DDA46 /* ProductResult.swift in Sources */,
 				FE13D2F726235AA300CB832F /* RegistrationChangeResult.swift in Sources */,
 				FE13D29F262337D200CB832F /* Auth.swift in Sources */,
 				FE13D2ED2623553700CB832F /* RegistrationResult.swift in Sources */,
 				FE13D2B3262339C000CB832F /* RequestRouter.swift in Sources */,
 				FE13D2A92623396C00CB832F /* LoginResult.swift in Sources */,
 				FE13D2AE2623397A00CB832F /* User.swift in Sources */,
+				FE8BF0AB2625BE95006DDA46 /* Goods.swift in Sources */,
 				FE13D2892623321C00CB832F /* AbstractErrorParser.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -563,6 +620,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				FE13D1EA261DAFD300CB832F /* GBShopTests.swift in Sources */,
+				FE8BF0DB2626155E006DDA46 /* APITests_Negative.swift in Sources */,
+				FE8BF08E2625AB05006DDA46 /* ResponseCodableTests.swift in Sources */,
+				FE8BF0CF26260649006DDA46 /* APITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

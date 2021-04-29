@@ -11,8 +11,9 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    let requestFactory = RequestFactory()
-    var hasError: Bool = false
+    let requestFactory = RequestFactory(
+        baseUrl: URL(string: "https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses/")!
+    )
     
     func doRegister() {
         let register = requestFactory.makeRegistrationRequestFactory()
@@ -68,7 +69,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             switch response.result {
             case .success(let result):
                 print(result)
-                self.doLogout()
+                self.getCatalogPage(pageNumber: 1, idCategory: 1)
             case .failure(let error):
                 print(error.localizedDescription)
             }
@@ -83,6 +84,40 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             switch response.result {
             case .success(let logout):
                 print(logout)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+
+    func getCatalogPage(pageNumber: Int, idCategory: Int) {
+        let goods = requestFactory.makeGoodsRequestFactory()
+        goods.getCatalog(pageNumber: pageNumber, idCategory: idCategory) { [weak self] response in
+            guard let self = self else {return}
+            switch response.result {
+            case .success(let catalog):
+                print(catalog)
+                if (pageNumber < 2) {
+                    self.getCatalogPage(pageNumber: pageNumber + 1, idCategory: idCategory)
+                } else {
+                    self.getProduct()
+                }
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+
+    func getProduct() {
+        let goods = requestFactory.makeGoodsRequestFactory()
+        goods.getProductBy(
+            idProduct: 123
+        ) { [weak self] response in
+            guard let self = self else {return}
+            switch response.result {
+            case .success(let product):
+                print(product)
+                self.doLogout()
             case .failure(let error):
                 print(error.localizedDescription)
             }
