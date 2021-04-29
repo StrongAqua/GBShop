@@ -77,9 +77,10 @@ extension Registration: RegistrationRequestFactory {
 extension Registration {
     struct RegistrationRecord: RequestRouter {
         let baseUrl: URL
-        let method: HTTPMethod = .get
-        let path: String = "registerUser.json"
-        
+        let method: HTTPMethod = .post
+        let path: String = "register"
+        // let path: String = "registerUser.json"
+
         let userId: Int
         let userName: String
         let password: String
@@ -103,8 +104,9 @@ extension Registration {
     
     struct RegistrationChangeset: RequestRouter {
         let baseUrl: URL
-        let method: HTTPMethod = .get
-        let path: String = "changeUserData.json"
+        let method: HTTPMethod = .post
+        let path: String = "changeUserData"
+        //let path: String = "changeUserData.json"
         
         let userId: Int
         let userName: String

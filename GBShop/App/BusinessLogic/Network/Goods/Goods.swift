@@ -27,7 +27,7 @@ class Goods: AbstractRequestFactory {
 }
 
 extension Goods: GoodsRequestFactory {
-    func getCatalog(pageNumber: Int, idCategory: Int, completionHandler: @escaping (AFDataResponse<[Product]>) -> Void) {
+    func getCatalog(pageNumber: Int, idCategory: Int, completionHandler: @escaping (AFDataResponse<CatalogResult>) -> Void) {
         let requestModel = CatalogData(baseUrl: baseUrl, pageNumber: pageNumber, idCategory: idCategory)
         self.request(request: requestModel, completionHandler: completionHandler)
     }
@@ -44,8 +44,9 @@ extension Goods: GoodsRequestFactory {
 extension Goods {
     struct CatalogData: RequestRouter {
         let baseUrl: URL
-        let method: HTTPMethod = .get
-        let path: String = "catalogData.json"
+        let method: HTTPMethod = .post
+        let path: String = "catalogData"
+        //let path: String = "catalogData.json"
         
         let pageNumber: Int
         let idCategory: Int
@@ -60,8 +61,9 @@ extension Goods {
 
     struct GoodById: RequestRouter {
         let baseUrl: URL
-        let method: HTTPMethod = .get
-        let path: String = "getGoodById.json"
+        let method: HTTPMethod = .post
+        let path: String = "getGoodById"
+        //let path: String = "getGoodById.json"
         
         let idProduct: Int
         var parameters: Parameters? {

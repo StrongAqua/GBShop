@@ -37,6 +37,7 @@
 		FE8BF0B32625BEB9006DDA46 /* GoodsRequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8BF0B22625BEB9006DDA46 /* GoodsRequestFactory.swift */; };
 		FE8BF0CF26260649006DDA46 /* APITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8BF0CE26260649006DDA46 /* APITests.swift */; };
 		FE8BF0DB2626155E006DDA46 /* APITests_Negative.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8BF0DA2626155E006DDA46 /* APITests_Negative.swift */; };
+		FE8BF0E0262CBDEA006DDA46 /* CatalogResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8BF0DF262CBDEA006DDA46 /* CatalogResult.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +100,7 @@
 		FE8BF0B22625BEB9006DDA46 /* GoodsRequestFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodsRequestFactory.swift; sourceTree = "<group>"; };
 		FE8BF0CE26260649006DDA46 /* APITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APITests.swift; sourceTree = "<group>"; };
 		FE8BF0DA2626155E006DDA46 /* APITests_Negative.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APITests_Negative.swift; sourceTree = "<group>"; };
+		FE8BF0DF262CBDEA006DDA46 /* CatalogResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogResult.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -324,6 +326,7 @@
 			children = (
 				FE8BF0922625B407006DDA46 /* ProductResult.swift */,
 				FE8BF0A42625B5AC006DDA46 /* Product.swift */,
+				FE8BF0DF262CBDEA006DDA46 /* CatalogResult.swift */,
 			);
 			path = Goods;
 			sourceTree = "<group>";
@@ -594,6 +597,7 @@
 			files = (
 				FE8BF0A52625B5AC006DDA46 /* Product.swift in Sources */,
 				FE13D2A42623385200CB832F /* RequestFactory.swift in Sources */,
+				FE8BF0E0262CBDEA006DDA46 /* CatalogResult.swift in Sources */,
 				FE13D291262332A800CB832F /* ErrorParser.swift in Sources */,
 				FE13D2BD26233BAA00CB832F /* ResponseCodable.swift in Sources */,
 				FE13D2F22623583500CB832F /* LogoutResult.swift in Sources */,

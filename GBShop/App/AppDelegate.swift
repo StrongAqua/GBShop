@@ -12,7 +12,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     let requestFactory = RequestFactory(
-        baseUrl: URL(string: "https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses/")!
+        baseUrl: URL(string: "https://vast-tor-76749.herokuapp.com/")!
+        // baseUrl: URL(string: "http://127.0.0.1:8080/")!
+        // baseUrl: URL(string: "https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses/")!
     )
     
     func doRegister() {
