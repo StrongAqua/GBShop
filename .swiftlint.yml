@@ -3,6 +3,7 @@ excluded:
 
 disabled_rules:
   - empty_enum_arguments
+  - trailing_whitespace
 
 line_length:
     warning: 500
