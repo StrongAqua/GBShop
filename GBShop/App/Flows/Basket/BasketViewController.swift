@@ -14,6 +14,8 @@ class BasketViewController: UIViewController {
         
         self.view.backgroundColor = UIColor.white
         self.title = "Basket"
+        
+        navigationController?.navigationBar.topItem?.title = "Basket"
     }
     
     override func didReceiveMemoryWarning() {

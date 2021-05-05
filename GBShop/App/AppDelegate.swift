@@ -17,10 +17,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window = UIWindow(frame: UIScreen.main.bounds)
 
-        let rootVC = LoginViewController()
         let rootNC = UINavigationController()
-        rootNC.viewControllers = [rootVC]
-
+        rootNC.viewControllers = [LoginViewController()]
         window?.rootViewController = rootNC
         window?.backgroundColor = .green
         window?.makeKeyAndVisible()

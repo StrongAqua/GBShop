@@ -116,6 +116,7 @@ class LoginViewController: UIViewController {
     }
     
     func startSigningUp( password: String, userName: String) {
+        // TODO: protect this code with state
         let auth = requestFactory.makeAuthRequestFactory()
         auth.login(
             userName: userName,
@@ -154,7 +155,9 @@ class LoginViewController: UIViewController {
     }
     
     func goToUserAccount() {
-        let tabBarController = UserTabBarController()
-        self.navigationController?.pushViewController( tabBarController, animated: true)
+        let appNavigation = UINavigationController()
+        appNavigation.viewControllers = [UserTabBarController()]
+        appNavigation.modalPresentationStyle = .fullScreen
+        self.present(appNavigation, animated: false, completion: {})
     }
 }

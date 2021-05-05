@@ -113,6 +113,7 @@ class RegistrationViewController: UIViewController {
         setupScrollView()
         setupViews()
         view.backgroundColor = .white
+        self.title = firstRegistration ? "Register" : "Profile"
     }
     
     @objc func registration() {
