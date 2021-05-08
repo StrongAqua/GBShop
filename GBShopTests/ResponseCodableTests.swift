@@ -21,7 +21,7 @@ enum ApiErrorStub: Error {
 }
 
 struct ErrorParserStub: AbstractErrorParser {
-    
+
     func parse(_ result: Error) -> Error {
         return ApiErrorStub.fatalError
     }
@@ -33,17 +33,17 @@ struct ErrorParserStub: AbstractErrorParser {
 class ResponseCodableTests: XCTestCase {
     let expectation = XCTestExpectation(description: "Download https://failUrl")
     var errorParser: ErrorParserStub!
-    
+
     override func setUp() {
         super.setUp()
         errorParser = ErrorParserStub()
     }
-    
+
     override func tearDown() {
         super.tearDown()
         errorParser = nil
     }
-    
+
     func testShouldDownloadAndParse() {
         AF
             .request("https://jsonplaceholder.typicode.com/posts/1")
@@ -51,13 +51,11 @@ class ResponseCodableTests: XCTestCase {
                 switch response.result {
                 case .success(_): break
                 case .failure:
-                    XCTFail()
+                    XCTFail("Test can't parse error message")
                 }
                 self?.expectation.fulfill()
             }
         wait(for: [expectation], timeout: 10.0)
     }
-    
+
 }
-
-

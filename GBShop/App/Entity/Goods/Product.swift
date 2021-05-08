@@ -13,4 +13,3 @@ struct Product: Codable {
     let price: Int
 
 }
-
