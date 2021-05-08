@@ -30,6 +30,11 @@
 		FE13D2F22623583500CB832F /* LogoutResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE13D2F12623583500CB832F /* LogoutResult.swift */; };
 		FE13D2F726235AA300CB832F /* RegistrationChangeResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE13D2F626235AA300CB832F /* RegistrationChangeResult.swift */; };
 		FE434446E30E180A5828E5AC /* Pods_GBShopTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 975DB5212979B020A4FA41E6 /* Pods_GBShopTests.framework */; };
+		FE70E6282646DF910036771D /* ReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE70E6272646DF910036771D /* ReviewViewController.swift */; };
+		FE70E6382646F5950036771D /* ReviewsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE70E6372646F5950036771D /* ReviewsTableView.swift */; };
+		FE70E63D2646F8D50036771D /* ReviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE70E63C2646F8D50036771D /* ReviewCell.swift */; };
+		FE70E6432646F9B80036771D /* UIButton+StandardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE70E6422646F9B80036771D /* UIButton+StandardView.swift */; };
+		FE70E64B264710A50036771D /* UserSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE70E64A264710A50036771D /* UserSession.swift */; };
 		FE8BF08E2625AB05006DDA46 /* ResponseCodableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8BF08D2625AB05006DDA46 /* ResponseCodableTests.swift */; };
 		FE8BF0932625B407006DDA46 /* ProductResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8BF0922625B407006DDA46 /* ProductResult.swift */; };
 		FE8BF0A52625B5AC006DDA46 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8BF0A42625B5AC006DDA46 /* Product.swift */; };
@@ -116,6 +121,11 @@
 		FE13D2EC2623553700CB832F /* RegistrationResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationResult.swift; sourceTree = "<group>"; };
 		FE13D2F12623583500CB832F /* LogoutResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutResult.swift; sourceTree = "<group>"; };
 		FE13D2F626235AA300CB832F /* RegistrationChangeResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationChangeResult.swift; sourceTree = "<group>"; };
+		FE70E6272646DF910036771D /* ReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewViewController.swift; sourceTree = "<group>"; };
+		FE70E6372646F5950036771D /* ReviewsTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewsTableView.swift; sourceTree = "<group>"; };
+		FE70E63C2646F8D50036771D /* ReviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewCell.swift; sourceTree = "<group>"; };
+		FE70E6422646F9B80036771D /* UIButton+StandardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+StandardView.swift"; sourceTree = "<group>"; };
+		FE70E64A264710A50036771D /* UserSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSession.swift; sourceTree = "<group>"; };
 		FE8BF08D2625AB05006DDA46 /* ResponseCodableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseCodableTests.swift; sourceTree = "<group>"; };
 		FE8BF0922625B407006DDA46 /* ProductResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductResult.swift; sourceTree = "<group>"; };
 		FE8BF0A42625B5AC006DDA46 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
@@ -225,6 +235,7 @@
 		FE13D1D1261DAFD000CB832F /* GBShop */ = {
 			isa = PBXGroup;
 			children = (
+				FE70E6412646F9960036771D /* Helpers */,
 				FE13D214261DE7E700CB832F /* App */,
 				FE13D219261DE85E00CB832F /* Core */,
 				FE13D21A261DE86F00CB832F /* Resources */,
@@ -297,6 +308,7 @@
 		FE13D218261DE82A00CB832F /* Flows */ = {
 			isa = PBXGroup;
 			children = (
+				FE70E6262646DF420036771D /* Review */,
 				FE8BF1F3263FF148006DDA46 /* Basket */,
 				FE8BF1F2263FF136006DDA46 /* Goods */,
 				FE8BF1752639503C006DDA46 /* Auth */,
@@ -350,6 +362,24 @@
 				FE8BF0A92625BE62006DDA46 /* Goods */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		FE70E6262646DF420036771D /* Review */ = {
+			isa = PBXGroup;
+			children = (
+				FE70E6272646DF910036771D /* ReviewViewController.swift */,
+				FE70E6372646F5950036771D /* ReviewsTableView.swift */,
+				FE70E63C2646F8D50036771D /* ReviewCell.swift */,
+			);
+			path = Review;
+			sourceTree = "<group>";
+		};
+		FE70E6412646F9960036771D /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				FE70E6422646F9B80036771D /* UIButton+StandardView.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		FE8BF0972625B44A006DDA46 /* Auth */ = {
@@ -443,6 +473,7 @@
 				FE8BF1762639508B006DDA46 /* LoginViewController.swift */,
 				FE8BF1C5263AA91B006DDA46 /* UserTabBarController.swift */,
 				FE8BF1A42639EC31006DDA46 /* RegistrationViewController.swift */,
+				FE70E64A264710A50036771D /* UserSession.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -747,6 +778,7 @@
 				FE13D291262332A800CB832F /* ErrorParser.swift in Sources */,
 				FE13D2BD26233BAA00CB832F /* ResponseCodable.swift in Sources */,
 				FE8BF130263589EB006DDA46 /* GetBasketResult.swift in Sources */,
+				FE70E63D2646F8D50036771D /* ReviewCell.swift in Sources */,
 				FE8BF13B263594E1006DDA46 /* Basket.swift in Sources */,
 				FE8BF20626403375006DDA46 /* CatalogTableViewCell.swift in Sources */,
 				FE13D2F22623583500CB832F /* LogoutResult.swift in Sources */,
@@ -755,7 +787,9 @@
 				FE8BF23026415122006DDA46 /* ProductViewController.swift in Sources */,
 				FE13D2E82623547900CB832F /* RegistrationRequestFactory.swift in Sources */,
 				FE8BF15F2635B60D006DDA46 /* StoreBot.swift in Sources */,
+				FE70E6282646DF910036771D /* ReviewViewController.swift in Sources */,
 				FE13D2972623378D00CB832F /* AuthRequestFactory.swift in Sources */,
+				FE70E6382646F5950036771D /* ReviewsTableView.swift in Sources */,
 				FE13D2E32623542A00CB832F /* Registration.swift in Sources */,
 				FE13D2B826233A8A00CB832F /* AbstractRequestFactory.swift in Sources */,
 				FE13D1D3261DAFD000CB832F /* AppDelegate.swift in Sources */,
@@ -774,11 +808,13 @@
 				FE8BF0F3262F0CF6006DDA46 /* ApproveReviewResult.swift in Sources */,
 				FE8BF123263588FF006DDA46 /* AddToBasketResult.swift in Sources */,
 				FE13D2A92623396C00CB832F /* LoginResult.swift in Sources */,
+				FE70E6432646F9B80036771D /* UIButton+StandardView.swift in Sources */,
 				FE8BF11926302961006DDA46 /* ListReviewResult.swift in Sources */,
 				FE8BF109262F2735006DDA46 /* Reviews.swift in Sources */,
 				FE8BF1EE263FF0CA006DDA46 /* CatalogTableViewController.swift in Sources */,
 				FE13D2AE2623397A00CB832F /* User.swift in Sources */,
 				FE8BF0AB2625BE95006DDA46 /* Goods.swift in Sources */,
+				FE70E64B264710A50036771D /* UserSession.swift in Sources */,
 				FE8BF0EE262F0CCB006DDA46 /* AddReviewResult.swift in Sources */,
 				FE8BF143263594FF006DDA46 /* BasketRequestFactory.swift in Sources */,
 				FE13D2892623321C00CB832F /* AbstractErrorParser.swift in Sources */,

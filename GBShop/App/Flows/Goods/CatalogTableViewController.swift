@@ -75,6 +75,8 @@ class CatalogTableViewController: UITableViewController {
         tableView.deselectRow(at: indexPath, animated: true)
         
         let productViewController = ProductViewController()
+        let product = productList?.products[indexPath.row]
+        productViewController.idProduct = product?.idProduct ?? 0
         navigationController?.pushViewController(productViewController, animated: true)
     }
 

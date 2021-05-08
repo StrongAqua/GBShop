@@ -12,4 +12,5 @@ struct Review: Codable {
     let idUser: Int
     let idProduct: Int
     let text: String
+    let userName: String?
 }

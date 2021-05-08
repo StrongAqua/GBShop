@@ -126,6 +126,7 @@ class LoginViewController: UIViewController {
             case .success(let login):
                 print(login)
                 DispatchQueue.main.async {
+                    UserSession.instance.user = login.user
                     self.goToUserAccount()
                 }
             case .failure(let error):
