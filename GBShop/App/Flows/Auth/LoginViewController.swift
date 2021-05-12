@@ -23,6 +23,8 @@ class LoginViewController: UIViewController {
     let usernameTextField: UITextField = {
         let textField = UITextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
+        textField.isAccessibilityElement = true
+        textField.accessibilityIdentifier = "Username"
         textField.placeholder = "Username"
         textField.borderStyle = .roundedRect
         textField.backgroundColor = UIColor(white: 0, alpha: 0.1)
@@ -33,6 +35,8 @@ class LoginViewController: UIViewController {
     let passwordTextField: UITextField = {
         let textField = UITextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
+        textField.isAccessibilityElement = true
+        textField.accessibilityIdentifier = "Password"
         textField.placeholder = "Password"
         textField.isSecureTextEntry = true
         textField.textContentType = .password
@@ -49,6 +53,8 @@ class LoginViewController: UIViewController {
         button.setTitleColor(.white, for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.isAccessibilityElement = true
+        button.accessibilityIdentifier = "SignUp"
         button.layer.cornerRadius = 3
         button.backgroundColor = UIColor.lightGray
         button.addTarget(self, action: #selector(handleSignUp), for: .touchUpInside)

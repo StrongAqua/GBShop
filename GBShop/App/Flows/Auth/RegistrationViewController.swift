@@ -174,107 +174,127 @@ class RegistrationViewController: UIViewController {
     func setupScrollView() {
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         contentView.translatesAutoresizingMaskIntoConstraints = false
+
         view.addSubview(scrollView)
         scrollView.addSubview(contentView)
-        scrollView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        scrollView.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
-        scrollView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        contentView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor).isActive = true
-        contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor).isActive = true
-        contentView.topAnchor.constraint(equalTo: scrollView.topAnchor).isActive = true
-        contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor).isActive = true
+
+        NSLayoutConstraint.activate([
+            scrollView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            scrollView.widthAnchor.constraint(equalTo: view.widthAnchor),
+            scrollView.topAnchor.constraint(equalTo: view.topAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+
+            contentView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
+            contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
+            contentView.topAnchor.constraint(equalTo: scrollView.topAnchor),
+            contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor)
+        ])
     }
     
+    // swiftlint:disable function_body_length
     func setupViews() {
         contentView.addSubview(registrationImageView)
-        registrationImageView.centerXAnchor
-            .constraint(equalTo: contentView.centerXAnchor).isActive = true
-        registrationImageView.topAnchor
-            .constraint(equalTo: contentView.topAnchor, constant: 10).isActive = true
-        registrationImageView.widthAnchor
-            .constraint(equalTo: contentView.widthAnchor, multiplier: 3/4).isActive = true
-        registrationImageView.heightAnchor
-            .constraint(equalToConstant: 100).isActive = true
-        
         contentView.addSubview(userNameTextField)
-        userNameTextField.centerXAnchor
-            .constraint(equalTo: contentView.centerXAnchor).isActive = true
-        userNameTextField.topAnchor
-            .constraint(equalTo: registrationImageView.bottomAnchor, constant: 25).isActive = true
-        userNameTextField.widthAnchor
-            .constraint(equalTo: contentView.widthAnchor, multiplier: 3/4).isActive = true
-        
         contentView.addSubview(passwordTextField)
-        passwordTextField.centerXAnchor
-            .constraint(equalTo: contentView.centerXAnchor).isActive = true
-        passwordTextField.topAnchor
-            .constraint(equalTo: userNameTextField.bottomAnchor, constant: 25).isActive = true
-        passwordTextField.widthAnchor
-            .constraint(equalTo: contentView.widthAnchor, multiplier: 3/4).isActive = true
-        
         contentView.addSubview(emailTextField)
-        emailTextField.centerXAnchor
-            .constraint(equalTo: contentView.centerXAnchor).isActive = true
-        emailTextField.topAnchor
-            .constraint(equalTo: passwordTextField.bottomAnchor, constant: 25).isActive = true
-        emailTextField.widthAnchor
-            .constraint(equalTo: contentView.widthAnchor, multiplier: 3/4).isActive = true
-        
         contentView.addSubview(genderTextField)
-        genderTextField.centerXAnchor
-            .constraint(equalTo: contentView.centerXAnchor).isActive = true
-        genderTextField.topAnchor
-            .constraint(equalTo: emailTextField.bottomAnchor, constant: 25).isActive = true
-        genderTextField.widthAnchor
-            .constraint(equalTo: contentView.widthAnchor, multiplier: 3/4).isActive = true
-        
         contentView.addSubview(cardTextField)
-        cardTextField.centerXAnchor
-            .constraint(equalTo: contentView.centerXAnchor).isActive = true
-        cardTextField.topAnchor
-            .constraint(equalTo: genderTextField.bottomAnchor, constant: 25).isActive = true
-        cardTextField.widthAnchor
-            .constraint(equalTo: contentView.widthAnchor, multiplier: 3/4).isActive = true
-        
         contentView.addSubview(bioTextField)
-        bioTextField.centerXAnchor
-            .constraint(equalTo: contentView.centerXAnchor).isActive = true
-        bioTextField.topAnchor
-            .constraint(equalTo: cardTextField.bottomAnchor, constant: 25).isActive = true
-        bioTextField.widthAnchor
-            .constraint(equalTo: contentView.widthAnchor, multiplier: 3/4).isActive = true
-        
         contentView.addSubview(registrationButton)
-        registrationButton.centerXAnchor
-            .constraint(equalTo: contentView.centerXAnchor).isActive = true
-        registrationButton.topAnchor
-            .constraint(equalTo: bioTextField.bottomAnchor, constant: 25).isActive = true
-        registrationButton.widthAnchor
-            .constraint(equalTo: contentView.widthAnchor, multiplier: 3/4).isActive = true
-        registrationButton.heightAnchor
-            .constraint(equalToConstant: 50).isActive = true
-        registrationButton.bottomAnchor
-            .constraint(equalTo: contentView.bottomAnchor, constant: -400).isActive = true
+
+        NSLayoutConstraint.activate([
+            registrationImageView.centerXAnchor
+                .constraint(equalTo: contentView.centerXAnchor),
+            registrationImageView.topAnchor
+                .constraint(equalTo: contentView.topAnchor, constant: 10),
+            registrationImageView.widthAnchor
+                .constraint(equalTo: contentView.widthAnchor, multiplier: 3/4),
+            registrationImageView.heightAnchor
+                .constraint(equalToConstant: 100),
+                                        
+            userNameTextField.centerXAnchor
+                .constraint(equalTo: contentView.centerXAnchor),
+            userNameTextField.topAnchor
+                .constraint(equalTo: registrationImageView.bottomAnchor, constant: 25),
+            userNameTextField.widthAnchor
+                .constraint(equalTo: contentView.widthAnchor, multiplier: 3/4),
+        
+            passwordTextField.centerXAnchor
+                .constraint(equalTo: contentView.centerXAnchor),
+            passwordTextField.topAnchor
+                .constraint(equalTo: userNameTextField.bottomAnchor, constant: 25),
+            passwordTextField.widthAnchor
+                .constraint(equalTo: contentView.widthAnchor, multiplier: 3/4),
+            
+            emailTextField.centerXAnchor
+                .constraint(equalTo: contentView.centerXAnchor),
+            emailTextField.topAnchor
+                .constraint(equalTo: passwordTextField.bottomAnchor, constant: 25),
+            emailTextField.widthAnchor
+                .constraint(equalTo: contentView.widthAnchor, multiplier: 3/4),
+            
+            genderTextField.centerXAnchor
+                .constraint(equalTo: contentView.centerXAnchor),
+            genderTextField.topAnchor
+                .constraint(equalTo: emailTextField.bottomAnchor, constant: 25),
+            genderTextField.widthAnchor
+                .constraint(equalTo: contentView.widthAnchor, multiplier: 3/4),
+            
+            cardTextField.centerXAnchor
+                .constraint(equalTo: contentView.centerXAnchor),
+            cardTextField.topAnchor
+                .constraint(equalTo: genderTextField.bottomAnchor, constant: 25),
+            cardTextField.widthAnchor
+                .constraint(equalTo: contentView.widthAnchor, multiplier: 3/4),
+            
+            bioTextField.centerXAnchor
+                .constraint(equalTo: contentView.centerXAnchor),
+            bioTextField.topAnchor
+                .constraint(equalTo: cardTextField.bottomAnchor, constant: 25),
+            bioTextField.widthAnchor
+                .constraint(equalTo: contentView.widthAnchor, multiplier: 3/4),
+            
+            registrationButton.centerXAnchor
+                .constraint(equalTo: contentView.centerXAnchor),
+            registrationButton.topAnchor
+                .constraint(equalTo: bioTextField.bottomAnchor, constant: 25),
+            registrationButton.widthAnchor
+                .constraint(equalTo: contentView.widthAnchor, multiplier: 3/4),
+            registrationButton.heightAnchor
+                .constraint(equalToConstant: 50),
+            registrationButton.bottomAnchor
+                .constraint(equalTo: contentView.bottomAnchor, constant: -400)
+        ])
     }
     
     @objc func handleRegTextChange() {
-        let usernameText = userNameTextField.text!
-        let passwordText = passwordTextField.text!
-        let emailText = emailTextField.text!
-        let genderText = genderTextField.text!
-        let cardText = cardTextField.text!
-        let bioText = bioTextField.text!
-        
-        let isFormFilled = !usernameText.isEmpty && !passwordText.isEmpty && !emailText.isEmpty && !genderText.isEmpty && !cardText.isEmpty && !bioText.isEmpty
-        
-        if isFormFilled {
-            registrationButton.backgroundColor = UIColor.darkGray
-            registrationButton.isEnabled = true
-        } else {
+        guard let usernameText = userNameTextField.text,
+              let passwordText = passwordTextField.text,
+              let emailText = emailTextField.text,
+              let genderText = genderTextField.text,
+              let cardText = cardTextField.text,
+              let bioText = bioTextField.text
+        else {
+            debugPrint("ERROR: can't read all required fields")
             registrationButton.backgroundColor = UIColor.lightGray
             registrationButton.isEnabled = false
+            return
         }
+        
+        guard !usernameText.isEmpty,
+              !passwordText.isEmpty,
+              !emailText.isEmpty,
+              !genderText.isEmpty,
+              !cardText.isEmpty,
+              !bioText.isEmpty
+        else {
+            registrationButton.backgroundColor = UIColor.lightGray
+            registrationButton.isEnabled = false
+            return
+        }
+        
+        registrationButton.backgroundColor = UIColor.darkGray
+        registrationButton.isEnabled = true
     }
     
 }

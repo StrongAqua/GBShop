@@ -15,14 +15,20 @@ class CatalogTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.tableView.tableFooterView = UIView()
-        self.view.backgroundColor = UIColor.white
-        self.title = "Catalog"
+        tableView.tableFooterView = UIView()
+        view.backgroundColor = UIColor.white
+        title = "Catalog"
         
         tableView.delegate = self
         tableView.dataSource = self
-            
-        tableView.register(CatalogTableViewCell.self, forCellReuseIdentifier: "CatalogCell")
+
+        tableView.isAccessibilityElement = true
+        tableView.accessibilityIdentifier = "CatalogTable"
+
+        tableView.register(
+            CatalogTableViewCell.self,
+            forCellReuseIdentifier: "CatalogCell"
+        )
         tableView.rowHeight = 70
         
         doGetCatalog(pageNumber: 23, idCategory: 11)
@@ -31,12 +37,10 @@ class CatalogTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         guard let productList = self.productList else { return 0 }
         return productList.products.count
     }
@@ -46,11 +50,12 @@ class CatalogTableViewController: UITableViewController {
         goods.getCatalog(
             pageNumber: pageNumber,
             idCategory: idCategory
-        ) { response in
+        ) { [weak self] response in
+            guard let self = self else {return}
             switch response.result {
             case .success(let result):
-                print(result)
-                DispatchQueue.main.async {
+                DispatchQueue.main.async { [weak self] in
+                    guard let self = self else {return}
                     self.productList = result
                     self.tableView.reloadData()
                 }
@@ -62,21 +67,32 @@ class CatalogTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "CatalogCell", for: indexPath) as? CatalogTableViewCell else {
+            debugPrint("ERROR: can't get reusable cell of class CatalogTableViewCell")
             return UITableViewCell()
         }
         
-        let product = productList?.products[indexPath.row]
-        cell.setUp(name: product?.productName ?? "unknown", price: product?.price ?? 0)
-        
+        guard let product = productList?.products[indexPath.row]
+        else {
+            cell.setUp(name: "#error", price: 0)
+            return cell
+        }
+
+        cell.setUp(name: product.productName, price: product.price)
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
+        guard let product = productList?.products[indexPath.row]
+        else {
+            debugPrint("ERROR: can't found item for the row \(indexPath.row)")
+            return
+        }
+        
         let productViewController = ProductViewController()
-        let product = productList?.products[indexPath.row]
-        productViewController.idProduct = product?.idProduct ?? 0
+        productViewController.idProduct = product.idProduct
+
         navigationController?.pushViewController(productViewController, animated: true)
     }
 

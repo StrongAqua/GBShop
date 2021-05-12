@@ -29,47 +29,47 @@ class ProductViewController: UIViewController {
     
     let productImageView: UIImageView = {
         let image = UIImageView()
-        image.image = UIImage(named: "noImage")
         image.translatesAutoresizingMaskIntoConstraints = false
+        image.image = UIImage(named: "noImage")
         image.contentMode = .scaleAspectFit
         return image
     }()
     
     let productNameLabel: UILabel = {
         let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .black
         label.font = UIFont.boldSystemFont(ofSize: 16)
         label.textAlignment = .left
-        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     let productPriceLabel: UILabel = {
         let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .black
         label.font = UIFont.systemFont(ofSize: 16)
         label.textAlignment = .left
         label.numberOfLines = 0
-        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     let productDescription: UITextView = {
         let text = UITextView()
+        text.translatesAutoresizingMaskIntoConstraints = false
         text.textColor = .black
         text.font = UIFont.systemFont(ofSize: 16)
         text.textAlignment = .left
-        text.translatesAutoresizingMaskIntoConstraints = false
         text.backgroundColor = UIColor.init(cgColor: CGColor(red: 0, green: 0, blue: 0, alpha: 0.1))
         return text
     }()
     
     let addToBasketButton: UIButton = {
         let button = UIButton(type: .system)
+        button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("Add to basket", for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
-        button.translatesAutoresizingMaskIntoConstraints = false
         button.layer.cornerRadius = 3
         button.backgroundColor = UIColor.lightGray
         button.addTarget(self, action: #selector(addToBasket), for: .touchUpInside)
@@ -78,10 +78,10 @@ class ProductViewController: UIViewController {
     
     let addReviewButton: UIButton = {
         let button = UIButton(type: .system)
+        button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("Add my review", for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
-        button.translatesAutoresizingMaskIntoConstraints = false
         button.layer.cornerRadius = 3
         button.backgroundColor = UIColor.lightGray
         button.addTarget(self, action: #selector(addReview), for: .touchUpInside)
@@ -89,6 +89,7 @@ class ProductViewController: UIViewController {
     }()
         
     // MARK: - Lifecycle
+
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
@@ -105,71 +106,104 @@ class ProductViewController: UIViewController {
     }
     
     // MARK: - Methods
+
+    // swiftlint:disable function_body_length
     func setupProductView() {
         view.addSubview(productView)
         productView.translatesAutoresizingMaskIntoConstraints = false
-        productView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor,
-                                         constant: 0).isActive = true
-        productView.leftAnchor.constraint(equalTo: view.leftAnchor,
-                                          constant: 0).isActive = true
-        productView.rightAnchor.constraint(equalTo: view.rightAnchor,
-                                           constant: 0).isActive = true
-        productView.heightAnchor.constraint(equalToConstant: 300).isActive = true
-        
+
         productView.addSubview(productImageView)
-        productImageView.topAnchor.constraint(equalTo: productView.topAnchor,
-                                              constant: 10).isActive = true
-        productImageView.leadingAnchor.constraint(equalTo: productView.leadingAnchor, constant: 10).isActive = true
-        productImageView.widthAnchor.constraint(equalToConstant: 100).isActive = true
-        productImageView.heightAnchor.constraint(equalToConstant: 100).isActive = true
-        print(productView.frame)
-        
-        let productInfo = UIView()
-        productView.addSubview(productInfo)
-        productInfo.translatesAutoresizingMaskIntoConstraints = false
-        productInfo.centerYAnchor.constraint(equalTo: productImageView.centerYAnchor).isActive = true
-        productInfo.leadingAnchor.constraint(equalTo: productImageView.trailingAnchor, constant: 10).isActive = true
-        productInfo.trailingAnchor.constraint(equalTo: productView.trailingAnchor, constant: -10).isActive = true
-        productInfo.heightAnchor.constraint(equalToConstant: 20 + 20 + 10).isActive = true
-        
-        productInfo.addSubview(productNameLabel)
-        productNameLabel.topAnchor.constraint(equalTo: productInfo.topAnchor).isActive = true
-        productNameLabel.leadingAnchor.constraint(equalTo: productInfo.leadingAnchor).isActive = true
-        productNameLabel.trailingAnchor.constraint(equalTo: productInfo.trailingAnchor).isActive = true
-        productNameLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
-        
-        productInfo.addSubview(productPriceLabel)
-        productPriceLabel.topAnchor.constraint(equalTo: productNameLabel.bottomAnchor, constant: 10).isActive = true
-        productPriceLabel.leadingAnchor.constraint(equalTo: productInfo.leadingAnchor).isActive = true
-        productPriceLabel.trailingAnchor.constraint(equalTo: productInfo.trailingAnchor).isActive = true
-        productPriceLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
-        
         productView.addSubview(productDescription)
-        productDescription.topAnchor.constraint(equalTo: productImageView.bottomAnchor, constant: 1).isActive = true
-        productDescription.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10).isActive = true
-        productDescription.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10).isActive = true
-        
         productView.addSubview(addToBasketButton)
-        addToBasketButton.bottomAnchor.constraint(equalTo: productView.bottomAnchor, constant: -10).isActive = true
-        addToBasketButton.leadingAnchor.constraint(equalTo: productView.leadingAnchor, constant: 50).isActive = true
-        addToBasketButton.trailingAnchor.constraint(equalTo: productView.trailingAnchor, constant: -50).isActive = true
-        addToBasketButton.heightAnchor.constraint(equalToConstant: 30).isActive = true
-        
-        productDescription.bottomAnchor.constraint(equalTo: addToBasketButton.topAnchor, constant: -10).isActive = true
+
+        let productInfo = UIView()
+        productInfo.translatesAutoresizingMaskIntoConstraints = false
+        productView.addSubview(productInfo)
+        productInfo.addSubview(productNameLabel)
+        productInfo.addSubview(productPriceLabel)
+
+        NSLayoutConstraint.activate([
+            productView.topAnchor
+                .constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            productView.leftAnchor
+                .constraint(equalTo: view.leftAnchor),
+            productView.rightAnchor
+                .constraint(equalTo: view.rightAnchor),
+            productView.heightAnchor
+                .constraint(equalToConstant: 300),
+
+            productImageView.topAnchor
+                .constraint(equalTo: productView.topAnchor, constant: 10),
+            productImageView.leadingAnchor
+                .constraint(equalTo: productView.leadingAnchor, constant: 10),
+            productImageView.widthAnchor
+                .constraint(equalToConstant: 100),
+            productImageView.heightAnchor
+                .constraint(equalToConstant: 100),
+
+            productInfo.centerYAnchor
+                .constraint(equalTo: productImageView.centerYAnchor),
+            productInfo.leadingAnchor
+                .constraint(equalTo: productImageView.trailingAnchor, constant: 10),
+            productInfo.trailingAnchor
+                .constraint(equalTo: productView.trailingAnchor, constant: -10),
+            productInfo.heightAnchor
+                .constraint(equalToConstant: 20 + 20 + 10),
+            
+            productNameLabel.topAnchor
+                .constraint(equalTo: productInfo.topAnchor),
+            productNameLabel.leadingAnchor
+                .constraint(equalTo: productInfo.leadingAnchor),
+            productNameLabel.trailingAnchor
+                .constraint(equalTo: productInfo.trailingAnchor),
+            productNameLabel.heightAnchor
+                .constraint(equalToConstant: 20),
+            
+            productPriceLabel.topAnchor
+                .constraint(equalTo: productNameLabel.bottomAnchor, constant: 10),
+            productPriceLabel.leadingAnchor
+                .constraint(equalTo: productInfo.leadingAnchor),
+            productPriceLabel.trailingAnchor
+                .constraint(equalTo: productInfo.trailingAnchor),
+            productPriceLabel.heightAnchor
+                .constraint(equalToConstant: 20),
+            
+            productDescription.topAnchor
+                .constraint(equalTo: productImageView.bottomAnchor, constant: 1),
+            productDescription.leadingAnchor
+                .constraint(equalTo: view.leadingAnchor, constant: 10),
+            productDescription.trailingAnchor
+                .constraint(equalTo: view.trailingAnchor, constant: -10),
+            
+            addToBasketButton.bottomAnchor
+                .constraint(equalTo: productView.bottomAnchor, constant: -10),
+            addToBasketButton.leadingAnchor
+                .constraint(equalTo: productView.leadingAnchor, constant: 50),
+            addToBasketButton.trailingAnchor
+                .constraint(equalTo: productView.trailingAnchor, constant: -50),
+            addToBasketButton.heightAnchor
+                .constraint(equalToConstant: 30),
+            
+            productDescription.bottomAnchor
+                .constraint(equalTo: addToBasketButton.topAnchor, constant: -10)
+        ])
     }
     
     func setUpReview() {
         view.addSubview(addReviewButton)
-        addReviewButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50).isActive = true
-        addReviewButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -50).isActive = true
-        addReviewButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -60).isActive = true
-        addReviewButton.heightAnchor.constraint(equalToConstant: 30).isActive = true
-
         view.addSubview(reviewTableView)
-        reviewTableView.topAnchor.constraint(equalTo: productView.bottomAnchor, constant: 10).isActive = true
-        reviewTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10).isActive = true
-        reviewTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10).isActive = true
-        reviewTableView.bottomAnchor.constraint(equalTo: addReviewButton.topAnchor, constant: -10).isActive = true
+
+        NSLayoutConstraint.activate([
+            addReviewButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50),
+            addReviewButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -50),
+            addReviewButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -60),
+            addReviewButton.heightAnchor.constraint(equalToConstant: 30),
+
+            reviewTableView.topAnchor.constraint(equalTo: productView.bottomAnchor, constant: 10),
+            reviewTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
+            reviewTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
+            reviewTableView.bottomAnchor.constraint(equalTo: addReviewButton.topAnchor, constant: -10)
+        ])
     }
     
     func doGetProductInfo(idProduct: Int) {
@@ -180,7 +214,6 @@ class ProductViewController: UIViewController {
             guard let self = self else {return}
             switch response.result {
             case .success(let result):
-                print(result)
                 DispatchQueue.main.async { [weak self] in
                     guard let self = self else {return}
                     self.product = result
@@ -204,11 +237,11 @@ class ProductViewController: UIViewController {
         ) { [weak self] response in
             guard let self = self else {return}
             switch response.result {
-            case .success(let result):
-                print(result)
+            case .success(_):
                 DispatchQueue.main.async { [weak self] in
                     guard let self = self else {return}
                     self.addToBasketButton.setTitle("Added", for: .normal)
+                    self.addToBasketButton.isEnabled = false
                 }
             case .failure(let error):
                 print(error.localizedDescription)
