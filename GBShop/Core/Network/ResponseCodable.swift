@@ -22,7 +22,7 @@ class CustomDecodableSerializer<T: Decodable>: DataResponseSerializerProtocol {
         }
         do {
             let data = try DataResponseSerializer().serialize(request: request, response: response, data: data, error: error)
-            let decoder = JSONDecoder();
+            let decoder = JSONDecoder()
             decoder.keyDecodingStrategy = .convertFromSnakeCase
             let value = try decoder.decode(T.self, from: data)
             return value

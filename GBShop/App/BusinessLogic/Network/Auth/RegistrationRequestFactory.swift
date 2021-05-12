@@ -19,7 +19,7 @@ protocol RegistrationRequestFactory {
         bio: String,
         completionHandler: @escaping (AFDataResponse<RegistrationResult>) -> Void
     )
-    
+
     func changeRegistrationRecord(
         userId: Int,
         userName: String,

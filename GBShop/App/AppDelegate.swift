@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // baseUrl: URL(string: "http://127.0.0.1:8080/")!
         // baseUrl: URL(string: "https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses/")!
     )
-    
+
     func doRegister() {
         let register = requestFactory.makeRegistrationRequestFactory()
         register.register(
@@ -38,7 +38,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
     }
-    
+
     func doLogin() {
         let auth = requestFactory.makeAuthRequestFactory()
         auth.login(
@@ -55,7 +55,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
     }
-    
+
     func doChangeRegRecord() {
         let register = requestFactory.makeRegistrationRequestFactory()
         register.changeRegistrationRecord(
@@ -77,7 +77,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
     }
-    
+
     func doLogout() {
         let auth = requestFactory.makeAuthRequestFactory()
         auth.logout(
@@ -99,7 +99,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             switch response.result {
             case .success(let catalog):
                 print(catalog)
-                if (pageNumber < 2) {
+                if pageNumber < 2 {
                     self.getCatalogPage(pageNumber: pageNumber + 1, idCategory: idCategory)
                 } else {
                     self.getProduct()
@@ -119,20 +119,85 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             switch response.result {
             case .success(let product):
                 print(product)
+                self.addReviewForProduct()
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+
+    func addReviewForProduct() {
+        let review = requestFactory.makeReviewRequestFactory()
+        review.addReview(
+            idUser: 123,
+            text: "This product is nice"
+        ) { [weak self] response in
+            guard let self = self else {return}
+            switch response.result {
+            case .success(let review):
+                print(review)
+                self.approveReviewForProduct()
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+
+    func approveReviewForProduct() {
+        let review = requestFactory.makeReviewRequestFactory()
+        review.approveReview(
+            idComment: 123
+        ) { [weak self] response in
+            guard let self = self else {return}
+            switch response.result {
+            case .success(let review):
+                print(review)
+                self.removeReviewForProduct()
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+
+    func removeReviewForProduct() {
+        let review = requestFactory.makeReviewRequestFactory()
+        review.removeReview(
+            idComment: 123
+        ) { [weak self] response in
+            guard let self = self else {return}
+            switch response.result {
+            case .success(let review):
+                print(review)
+                self.getListReviewForProduct()
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+
+    func getListReviewForProduct() {
+        let review = requestFactory.makeReviewRequestFactory()
+        review.getListReview(
+            pageNumber: 1,
+            idProduct: 123
+        ) { [weak self] response in
+            guard let self = self else {return}
+            switch response.result {
+            case .success(let review):
+                print(review)
                 self.doLogout()
             case .failure(let error):
                 print(error.localizedDescription)
             }
         }
     }
-    
+
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        
+
         doRegister()
 
         return true
     }
-
 
     // MARK: UISceneSession Lifecycle
 
@@ -148,6 +213,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
 
-
 }
-

@@ -38,6 +38,13 @@
 		FE8BF0CF26260649006DDA46 /* APITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8BF0CE26260649006DDA46 /* APITests.swift */; };
 		FE8BF0DB2626155E006DDA46 /* APITests_Negative.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8BF0DA2626155E006DDA46 /* APITests_Negative.swift */; };
 		FE8BF0E0262CBDEA006DDA46 /* CatalogResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8BF0DF262CBDEA006DDA46 /* CatalogResult.swift */; };
+		FE8BF0E6262F0C77006DDA46 /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8BF0E5262F0C77006DDA46 /* Review.swift */; };
+		FE8BF0EE262F0CCB006DDA46 /* AddReviewResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8BF0ED262F0CCB006DDA46 /* AddReviewResult.swift */; };
+		FE8BF0F3262F0CF6006DDA46 /* ApproveReviewResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8BF0F2262F0CF6006DDA46 /* ApproveReviewResult.swift */; };
+		FE8BF0F8262F0D28006DDA46 /* RemoveReviewResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8BF0F7262F0D28006DDA46 /* RemoveReviewResult.swift */; };
+		FE8BF109262F2735006DDA46 /* Reviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8BF108262F2735006DDA46 /* Reviews.swift */; };
+		FE8BF111262F276B006DDA46 /* ReviewRequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8BF110262F276B006DDA46 /* ReviewRequestFactory.swift */; };
+		FE8BF11926302961006DDA46 /* ListReviewResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8BF11826302961006DDA46 /* ListReviewResult.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,6 +108,13 @@
 		FE8BF0CE26260649006DDA46 /* APITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APITests.swift; sourceTree = "<group>"; };
 		FE8BF0DA2626155E006DDA46 /* APITests_Negative.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APITests_Negative.swift; sourceTree = "<group>"; };
 		FE8BF0DF262CBDEA006DDA46 /* CatalogResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogResult.swift; sourceTree = "<group>"; };
+		FE8BF0E5262F0C77006DDA46 /* Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
+		FE8BF0ED262F0CCB006DDA46 /* AddReviewResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddReviewResult.swift; sourceTree = "<group>"; };
+		FE8BF0F2262F0CF6006DDA46 /* ApproveReviewResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApproveReviewResult.swift; sourceTree = "<group>"; };
+		FE8BF0F7262F0D28006DDA46 /* RemoveReviewResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveReviewResult.swift; sourceTree = "<group>"; };
+		FE8BF108262F2735006DDA46 /* Reviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reviews.swift; sourceTree = "<group>"; };
+		FE8BF110262F276B006DDA46 /* ReviewRequestFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewRequestFactory.swift; sourceTree = "<group>"; };
+		FE8BF11826302961006DDA46 /* ListReviewResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListReviewResult.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -231,6 +245,7 @@
 		FE13D216261DE80700CB832F /* Entity */ = {
 			isa = PBXGroup;
 			children = (
+				FE8BF0E4262F0C1A006DDA46 /* Review */,
 				FE8BF09A2625B4EA006DDA46 /* Auth */,
 				FE8BF09B2625B4FD006DDA46 /* Goods */,
 			);
@@ -291,6 +306,7 @@
 		FE13D2952623376000CB832F /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				FE8BF107262F26F7006DDA46 /* Review */,
 				FE8BF0972625B44A006DDA46 /* Auth */,
 				FE8BF0A92625BE62006DDA46 /* Goods */,
 			);
@@ -340,6 +356,27 @@
 			path = Goods;
 			sourceTree = "<group>";
 		};
+		FE8BF0E4262F0C1A006DDA46 /* Review */ = {
+			isa = PBXGroup;
+			children = (
+				FE8BF0E5262F0C77006DDA46 /* Review.swift */,
+				FE8BF0ED262F0CCB006DDA46 /* AddReviewResult.swift */,
+				FE8BF0F7262F0D28006DDA46 /* RemoveReviewResult.swift */,
+				FE8BF0F2262F0CF6006DDA46 /* ApproveReviewResult.swift */,
+				FE8BF11826302961006DDA46 /* ListReviewResult.swift */,
+			);
+			path = Review;
+			sourceTree = "<group>";
+		};
+		FE8BF107262F26F7006DDA46 /* Review */ = {
+			isa = PBXGroup;
+			children = (
+				FE8BF108262F2735006DDA46 /* Reviews.swift */,
+				FE8BF110262F276B006DDA46 /* ReviewRequestFactory.swift */,
+			);
+			path = Review;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -352,6 +389,7 @@
 				FE13D1CC261DAFD000CB832F /* Frameworks */,
 				FE13D1CD261DAFD000CB832F /* Resources */,
 				CDDA8B64C4282ED608B4AA1B /* [CP] Embed Pods Frameworks */,
+				FE8BF11D263039C6006DDA46 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -588,6 +626,23 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GBShop/Pods-GBShop-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		FE8BF11D263039C6006DDA46 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -602,6 +657,7 @@
 				FE13D2BD26233BAA00CB832F /* ResponseCodable.swift in Sources */,
 				FE13D2F22623583500CB832F /* LogoutResult.swift in Sources */,
 				FE8BF0B32625BEB9006DDA46 /* GoodsRequestFactory.swift in Sources */,
+				FE8BF111262F276B006DDA46 /* ReviewRequestFactory.swift in Sources */,
 				FE13D2E82623547900CB832F /* RegistrationRequestFactory.swift in Sources */,
 				FE13D2972623378D00CB832F /* AuthRequestFactory.swift in Sources */,
 				FE13D2E32623542A00CB832F /* Registration.swift in Sources */,
@@ -609,12 +665,18 @@
 				FE13D1D3261DAFD000CB832F /* AppDelegate.swift in Sources */,
 				FE8BF0932625B407006DDA46 /* ProductResult.swift in Sources */,
 				FE13D2F726235AA300CB832F /* RegistrationChangeResult.swift in Sources */,
+				FE8BF0F8262F0D28006DDA46 /* RemoveReviewResult.swift in Sources */,
 				FE13D29F262337D200CB832F /* Auth.swift in Sources */,
 				FE13D2ED2623553700CB832F /* RegistrationResult.swift in Sources */,
 				FE13D2B3262339C000CB832F /* RequestRouter.swift in Sources */,
+				FE8BF0E6262F0C77006DDA46 /* Review.swift in Sources */,
+				FE8BF0F3262F0CF6006DDA46 /* ApproveReviewResult.swift in Sources */,
 				FE13D2A92623396C00CB832F /* LoginResult.swift in Sources */,
+				FE8BF11926302961006DDA46 /* ListReviewResult.swift in Sources */,
+				FE8BF109262F2735006DDA46 /* Reviews.swift in Sources */,
 				FE13D2AE2623397A00CB832F /* User.swift in Sources */,
 				FE8BF0AB2625BE95006DDA46 /* Goods.swift in Sources */,
+				FE8BF0EE262F0CCB006DDA46 /* AddReviewResult.swift in Sources */,
 				FE13D2892623321C00CB832F /* AbstractErrorParser.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

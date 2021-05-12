@@ -17,7 +17,7 @@ class APITests: XCTestCase {
         // baseUrl: URL(string: "https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses/")!
     )
     // https://github.com/StrongAqua/online-store-api/blob/badresponses/responses/
-    
+
     func testRegistration() throws {
         let expectation = XCTestExpectation(description: "APITests.testRegistration success")
         let register = requestFactory.makeRegistrationRequestFactory()
@@ -36,7 +36,7 @@ class APITests: XCTestCase {
                 expectation.fulfill()
             case .failure(let error):
                 print(error.localizedDescription)
-                XCTFail()
+                XCTFail("Test can't get a good response")
             }
         }
         wait(for: [expectation], timeout: 10.0)
@@ -55,12 +55,12 @@ class APITests: XCTestCase {
                 expectation.fulfill()
             case .failure(let error):
                 print(error.localizedDescription)
-                XCTFail()
+                XCTFail("Test can't get a good response")
             }
         }
         wait(for: [expectation], timeout: 10.0)
     }
-    
+
     func testChangeRegistration() throws {
         let expectation = XCTestExpectation(description: "APITests.testChangeRegistration success")
         let register = requestFactory.makeRegistrationRequestFactory()
@@ -79,12 +79,12 @@ class APITests: XCTestCase {
                 expectation.fulfill()
             case .failure(let error):
                 print(error.localizedDescription)
-                XCTFail()
+                XCTFail("Test can't get a good response")
             }
         }
         wait(for: [expectation], timeout: 10.0)
     }
-    
+
     func doTestGetPage(
         totalPages: Int,
         pageNumber: Int,
@@ -92,13 +92,15 @@ class APITests: XCTestCase {
         expectation: XCTestExpectation
     ) {
         let goods = requestFactory.makeGoodsRequestFactory()
-        goods.getCatalog(pageNumber: pageNumber, idCategory: idCategory)
-        { [weak self] response in
+        goods.getCatalog(
+            pageNumber: pageNumber,
+            idCategory: idCategory
+        ) { [weak self] response in
             guard let self = self else {return}
             switch response.result {
             case .success(let catalog):
                 print(catalog)
-                if (pageNumber < totalPages) {
+                if pageNumber < totalPages {
                     self.doTestGetPage(
                         totalPages: totalPages,
                         pageNumber: pageNumber + 1,
@@ -110,7 +112,7 @@ class APITests: XCTestCase {
                 }
             case .failure(let error):
                 print(error.localizedDescription)
-                XCTFail()
+                XCTFail("Test can't get a good response")
             }
         }
     }
@@ -139,12 +141,113 @@ class APITests: XCTestCase {
                 expectation.fulfill()
             case .failure(let error):
                 print(error.localizedDescription)
-                XCTFail()
+                XCTFail("Test can't get a good response")
             }
         }
         wait(for: [expectation], timeout: 10.0)
     }
-    
+
+    func testAddReview() throws {
+        let expectation =
+            XCTestExpectation(description: "APITests.testAddReview success")
+        let review = requestFactory.makeReviewRequestFactory()
+        review.addReview(
+            idUser: 666,
+            text: "very-very sad"
+        ) { response in
+            switch response.result {
+            case .success(let result):
+                print(result)
+                expectation.fulfill()
+            case .failure(let error):
+                print(error.localizedDescription)
+                XCTFail("Test can't get a good response")
+            }
+        }
+        wait(for: [expectation], timeout: 10.0)
+    }
+
+    func testApproveReview() throws {
+        let expectation =
+            XCTestExpectation(description: "APITests.testApproveReview success")
+        let review = requestFactory.makeReviewRequestFactory()
+        review.approveReview(
+            idComment: 777
+        ) { response in
+            switch response.result {
+            case .success(let approve):
+                print(approve)
+                expectation.fulfill()
+            case .failure(let error):
+                print(error.localizedDescription)
+                XCTFail("Test can't get a good response")
+            }
+        }
+        wait(for: [expectation], timeout: 10.0)
+    }
+
+    func testRemoveReview() throws {
+        let expectation =
+            XCTestExpectation(description: "APITests.testRemoveReview success")
+        let review = requestFactory.makeReviewRequestFactory()
+        review.removeReview(
+            idComment: 777
+        ) { response in
+            switch response.result {
+            case .success(let result):
+                print(result)
+                expectation.fulfill()
+            case .failure(let error):
+                print(error.localizedDescription)
+                XCTFail("Test can't get a good response")
+            }
+        }
+        wait(for: [expectation], timeout: 10.0)
+    }
+
+    func doTestGetPageForReview(
+        totalPages: Int,
+        pageNumber: Int,
+        idProduct: Int,
+        expectation: XCTestExpectation
+    ) {
+        let reviews = requestFactory.makeReviewRequestFactory()
+        reviews.getListReview(
+            pageNumber: pageNumber,
+            idProduct: idProduct
+        ) { [weak self] response in
+            guard let self = self else {return}
+            switch response.result {
+            case .success(let catalog):
+                print(catalog)
+                if pageNumber < totalPages {
+                    self.doTestGetPageForReview(
+                        totalPages: totalPages,
+                        pageNumber: pageNumber + 1,
+                        idProduct: 1,
+                        expectation: expectation
+                    )
+                } else {
+                    expectation.fulfill()
+                }
+            case .failure(let error):
+                print(error.localizedDescription)
+                XCTFail("Test can't get a good response")
+            }
+        }
+    }
+
+    func testGetListReview() throws {
+        let expectation = XCTestExpectation(description: "APITests.testGetListReview success")
+        doTestGetPageForReview(
+            totalPages: 10,
+            pageNumber: 1,
+            idProduct: 1,
+            expectation: expectation
+        )
+        wait(for: [expectation], timeout: 10.0)
+    }
+
     func testLogout() throws {
         let expectation =
             XCTestExpectation(description: "APITests.testLogout success")
@@ -158,10 +261,10 @@ class APITests: XCTestCase {
                 expectation.fulfill()
             case .failure(let error):
                 print(error.localizedDescription)
-                XCTFail()
+                XCTFail("Test can't get a good response")
             }
         }
         wait(for: [expectation], timeout: 10.0)
     }
-    
+
 }
