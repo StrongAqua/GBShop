@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAnalytics
 
 class CatalogTableViewController: UITableViewController {
     
@@ -32,6 +33,14 @@ class CatalogTableViewController: UITableViewController {
         tableView.rowHeight = 70
         
         doGetCatalog(pageNumber: 23, idCategory: 11)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        debugPrint("Analytics: ScreenView, \(type(of: self)), \(title ?? "")")
+        Analytics.logEvent(
+            AnalyticsEventScreenView,
+            parameters: [AnalyticsParameterScreenClass: type(of: self),
+                         AnalyticsParameterScreenName: title ?? ""])
     }
 
     // MARK: - Table view data source

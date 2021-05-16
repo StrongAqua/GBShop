@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAnalytics
 
 class RegistrationViewController: UIViewController {
     
@@ -145,8 +146,14 @@ class RegistrationViewController: UIViewController {
             ) { response in
                 switch response.result {
                 case .success(let login):
+                    Analytics.logEvent(
+                        AnalyticsEventSignUp,
+                        parameters: [AnalyticsParameterMethod: "default.success"])
                     print(login)
                 case .failure(let error):
+                    Analytics.logEvent(
+                        AnalyticsEventSignUp,
+                        parameters: [AnalyticsParameterMethod: "default.failure"])
                     print(error.localizedDescription)
                 }
             }

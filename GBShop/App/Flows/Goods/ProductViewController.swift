@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAnalytics
 
 class ProductViewController: UIViewController {
     
@@ -103,6 +104,11 @@ class ProductViewController: UIViewController {
         view.layoutIfNeeded()
         productView.layoutIfNeeded()
         productImageView.layoutIfNeeded()
+        debugPrint("Analytics: ScreenView, \(type(of: self)), \(title ?? "")")
+        Analytics.logEvent(
+            AnalyticsEventScreenView,
+            parameters: [AnalyticsParameterScreenClass: type(of: self),
+                         AnalyticsParameterScreenName: title ?? ""])
     }
     
     // MARK: - Methods
@@ -242,6 +248,17 @@ class ProductViewController: UIViewController {
                     guard let self = self else {return}
                     self.addToBasketButton.setTitle("Added", for: .normal)
                     self.addToBasketButton.isEnabled = false
+                    debugPrint("Analytics: AddToBasket, \(idProduct)")
+                    Analytics.logEvent(
+                        AnalyticsEventAddToCart,
+                        parameters: [
+                            AnalyticsParameterItems: [
+                                [
+                                    AnalyticsParameterItemName: "\(idProduct)",
+                                    AnalyticsParameterItemCategory: "default"
+                                ]
+                            ]
+                        ])
                 }
             case .failure(let error):
                 print(error.localizedDescription)
@@ -252,7 +269,7 @@ class ProductViewController: UIViewController {
     
     @objc func addReview() {
         let reviewViewController = ReviewViewController()
-        self.navigationController?.pushViewController( reviewViewController, animated: true)
+        self.navigationController?.pushViewController( reviewViewController, animated: true)        
     }
         
 }

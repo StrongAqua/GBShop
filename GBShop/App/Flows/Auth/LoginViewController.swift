@@ -7,6 +7,7 @@
 
 import UIKit
 import Alamofire
+import FirebaseAnalytics
 
 class LoginViewController: UIViewController {
     
@@ -132,10 +133,16 @@ class LoginViewController: UIViewController {
             case .success(let login):
                 print(login)
                 DispatchQueue.main.async {
+                    Analytics.logEvent(
+                        AnalyticsEventLogin,
+                        parameters: [AnalyticsParameterMethod: "default.success"])
                     UserSession.instance.user = login.user
                     self.goToUserAccount()
                 }
             case .failure(let error):
+                Analytics.logEvent(
+                    AnalyticsEventLogin,
+                    parameters: [AnalyticsParameterMethod: "default.failure"])
                 print(error.localizedDescription)
             }
         }

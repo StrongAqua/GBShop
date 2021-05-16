@@ -29,6 +29,7 @@
 		FE13D2ED2623553700CB832F /* RegistrationResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE13D2EC2623553700CB832F /* RegistrationResult.swift */; };
 		FE13D2F22623583500CB832F /* LogoutResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE13D2F12623583500CB832F /* LogoutResult.swift */; };
 		FE13D2F726235AA300CB832F /* RegistrationChangeResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE13D2F626235AA300CB832F /* RegistrationChangeResult.swift */; };
+		FE41B64E2651470A009350D7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FE41B64D2651470A009350D7 /* GoogleService-Info.plist */; };
 		FE434446E30E180A5828E5AC /* Pods_GBShopTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 975DB5212979B020A4FA41E6 /* Pods_GBShopTests.framework */; };
 		FE70E6282646DF910036771D /* ReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE70E6272646DF910036771D /* ReviewViewController.swift */; };
 		FE70E6382646F5950036771D /* ReviewsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE70E6372646F5950036771D /* ReviewsTableView.swift */; };
@@ -123,6 +124,7 @@
 		FE13D2EC2623553700CB832F /* RegistrationResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationResult.swift; sourceTree = "<group>"; };
 		FE13D2F12623583500CB832F /* LogoutResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutResult.swift; sourceTree = "<group>"; };
 		FE13D2F626235AA300CB832F /* RegistrationChangeResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationChangeResult.swift; sourceTree = "<group>"; };
+		FE41B64D2651470A009350D7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FE70E6272646DF910036771D /* ReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewViewController.swift; sourceTree = "<group>"; };
 		FE70E6372646F5950036771D /* ReviewsTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewsTableView.swift; sourceTree = "<group>"; };
 		FE70E63C2646F8D50036771D /* ReviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewCell.swift; sourceTree = "<group>"; };
@@ -239,6 +241,7 @@
 		FE13D1D1261DAFD000CB832F /* GBShop */ = {
 			isa = PBXGroup;
 			children = (
+				FE41B64D2651470A009350D7 /* GoogleService-Info.plist */,
 				FE70E6412646F9960036771D /* Helpers */,
 				FE13D214261DE7E700CB832F /* App */,
 				FE13D219261DE85E00CB832F /* Core */,
@@ -515,6 +518,7 @@
 				FE13D1CD261DAFD000CB832F /* Resources */,
 				CDDA8B64C4282ED608B4AA1B /* [CP] Embed Pods Frameworks */,
 				FE8BF11D263039C6006DDA46 /* ShellScript */,
+				FE41B67526514BC9009350D7 /* Crashlytics */,
 			);
 			buildRules = (
 			);
@@ -614,6 +618,7 @@
 			files = (
 				FE13D1DF261DAFD300CB832F /* LaunchScreen.storyboard in Resources */,
 				FE13D1DC261DAFD300CB832F /* Assets.xcassets in Resources */,
+				FE41B64E2651470A009350D7 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -750,6 +755,26 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GBShop/Pods-GBShop-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		FE41B67526514BC9009350D7 /* Crashlytics */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${TARGET_NAME}",
+				"$(SRCROOT)/$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
+			);
+			name = Crashlytics;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/FirebaseCrashlytics/run\"\n";
 		};
 		FE8BF11D263039C6006DDA46 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -909,7 +934,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAnalytics
 
 class BasketViewController: UIViewController {
     
@@ -155,6 +156,13 @@ class BasketViewController: UIViewController {
             case .success(let result):
                 DispatchQueue.main.async { [weak self] in
                     guard let self = self else {return}
+                    debugPrint("Analytics: Payment")
+                    Analytics.logEvent(
+                        AnalyticsEventPurchase,
+                        parameters: [
+                            AnalyticsParameterCurrency: "RUR",
+                            AnalyticsParameterValue: self.basketPrice
+                        ])
                     self.basketList = result.basket.contents
                     self.basketGoodsCount = result.basket.countGoods
                     self.basketPrice = result.basket.amount
@@ -186,9 +194,17 @@ extension BasketViewController: BasketActionsDelegate {
     
     func removeItem(cell: BasketTableViewCell) {
         DispatchQueue.main.async {
-            // do nothing now
-            // should either request server for the new basket data
-            // or process basket changes locally
+            debugPrint("Analytics: AddToBasket, \(cell.productId)")
+            Analytics.logEvent(
+                AnalyticsEventRemoveFromCart,
+                parameters: [
+                    AnalyticsParameterItems: [
+                        [
+                            AnalyticsParameterItemName: "\(cell.productId)",
+                            AnalyticsParameterItemCategory: "default"
+                        ]
+                    ]
+                ])
         }
     }
 }
