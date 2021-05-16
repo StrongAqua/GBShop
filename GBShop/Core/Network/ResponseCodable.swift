@@ -16,13 +16,14 @@ class CustomDecodableSerializer<T: Decodable>: DataResponseSerializerProtocol {
     }
 
     func serialize(request: URLRequest?, response: HTTPURLResponse?, data: Data?, error: Error?) throws -> T {
+        debugPrint("REQUEST: \(String(decoding: request?.httpBody ?? Data(), as: UTF8.self))")
         debugPrint("RESPONSE: \(String(decoding: data ?? Data(), as: UTF8.self))")
         if let error = errorParser.parse(response: response, data: data, error: error) {
             throw error
         }
         do {
             let data = try DataResponseSerializer().serialize(request: request, response: response, data: data, error: error)
-            let decoder = JSONDecoder();
+            let decoder = JSONDecoder()
             decoder.keyDecodingStrategy = .convertFromSnakeCase
             let value = try decoder.decode(T.self, from: data)
             return value
