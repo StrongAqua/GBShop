@@ -10,28 +10,48 @@ import XCTest
 class GBShopUITests: XCTestCase {
 
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-
-        // In UI tests it is usually best to stop immediately when a failure occurs.
         continueAfterFailure = false
-
-        // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
     }
 
     override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() throws {
-        // UI tests must launch the application that they test.
+    func testLoginScreen() throws {
         let app = XCUIApplication()
+        
+        setupSnapshot(app)
+        
         app.launch()
+        
+        snapshot("LoginScreen")
+        
+        let signUpButton = app.buttons["SignUp"]
+        XCTAssertTrue(signUpButton.exists)
+        XCTAssertTrue(signUpButton.isHittable)
 
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        let userNameTextField = app.textFields["Username"]
+        XCTAssertTrue(userNameTextField.exists)
+        userNameTextField.tap()
+        userNameTextField.typeText("123")
+        // check the button is still disabled
+        XCTAssertFalse(signUpButton.isEnabled)
+
+        let passwordSecureTextField = app.secureTextFields["Password"]
+        XCTAssertTrue(passwordSecureTextField.exists)
+        passwordSecureTextField.tap()
+        passwordSecureTextField.typeText("123")
+        // check the button become enabled
+        XCTAssertTrue(signUpButton.isEnabled)
+
+        signUpButton.tap()
+
+        let catalogTable = app.tables["CatalogTable"]
+        XCTAssertTrue(catalogTable.waitForExistence(timeout: 10))
+        
+        snapshot("ProductScreen")
     }
 
-    func testLaunchPerformance() throws {
+    func DISABLED_testLaunchPerformance() throws {
         if #available(macOS 10.15, iOS 13.0, tvOS 13.0, *) {
             // This measures how long it takes to launch your application.
             measure(metrics: [XCTApplicationLaunchMetric()]) {

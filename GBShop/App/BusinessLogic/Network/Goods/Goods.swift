@@ -13,7 +13,7 @@ class Goods: AbstractRequestFactory {
     let errorParser: AbstractErrorParser
     let sessionManager: Session
     let queue: DispatchQueue
-    
+
     init(
         baseUrl: URL,
         errorParser: AbstractErrorParser,
@@ -31,13 +31,11 @@ extension Goods: GoodsRequestFactory {
         let requestModel = CatalogData(baseUrl: baseUrl, pageNumber: pageNumber, idCategory: idCategory)
         self.request(request: requestModel, completionHandler: completionHandler)
     }
-    
+
     func getProductBy(idProduct: Int, completionHandler: @escaping (AFDataResponse<ProductResult>) -> Void) {
         let requestModel = GoodById(baseUrl: baseUrl, idProduct: idProduct)
         self.request(request: requestModel, completionHandler: completionHandler)
     }
-    
-
 
 }
 
@@ -46,8 +44,8 @@ extension Goods {
         let baseUrl: URL
         let method: HTTPMethod = .post
         let path: String = "catalogData"
-        //let path: String = "catalogData.json"
-        
+        // let path: String = "catalogData.json"
+
         let pageNumber: Int
         let idCategory: Int
 
@@ -63,12 +61,12 @@ extension Goods {
         let baseUrl: URL
         let method: HTTPMethod = .post
         let path: String = "getGoodById"
-        //let path: String = "getGoodById.json"
-        
+        // let path: String = "getGoodById.json"
+
         let idProduct: Int
         var parameters: Parameters? {
             return [
-                "id_product": idProduct,
+                "id_product": idProduct
             ]
         }
     }

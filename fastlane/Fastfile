@@ -1,0 +1,44 @@
+# This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+#
+# For a list of all available actions, check out
+#
+#     https://docs.fastlane.tools/actions
+#
+# For a list of all available plugins, check out
+#
+#     https://docs.fastlane.tools/plugins/available-plugins
+#
+
+# Uncomment the line if you want fastlane to automatically update itself
+# update_fastlane
+
+default_platform(:ios)
+
+platform :ios do
+  desc "Description of what the lane does"
+  lane :custom_lane do
+    # checkout release branch
+    # ensure_git_status_clean
+
+    # clear data
+    clear_derived_data
+    xcclean(
+        scheme: "GBShop",
+        workspace: "GBShop.xcworkspace"
+    )
+    
+    # run tests
+    run_tests
+
+    # make screenshots
+    capture_ios_screenshots
+  end
+
+
+  lane :project do
+    increment_build_number
+    set_info_plist_value(path: "./GBShop/Environments/Info.plist", key: "CFBundleShortVersionString", value: "2.0")
+
+  end
+end

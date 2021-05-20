@@ -9,12 +9,12 @@ import XCTest
 import Alamofire
 @testable import GBShop
 
-class APITests_Negative: XCTestCase {
+class APITestsNegative: XCTestCase {
 
     let requestFactory = RequestFactory(
         baseUrl: URL(string: "https://github.com/StrongAqua/online-store-api/blob/badresponses/responses/")!
     )
-    
+
     func testLogin() throws {
         let expectation = XCTestExpectation(description: "APITests_Negative.testLogin success")
         let auth = requestFactory.makeAuthRequestFactory()
@@ -25,7 +25,7 @@ class APITests_Negative: XCTestCase {
             switch response.result {
             case .success(let login):
                 print(login)
-                XCTFail()
+                XCTFail("Test unexpectedly got a good response")
             case .failure(let error):
                 print(error.localizedDescription)
                 expectation.fulfill()
@@ -33,7 +33,7 @@ class APITests_Negative: XCTestCase {
         }
         wait(for: [expectation], timeout: 10.0)
     }
-    
+
     func testLogout() throws {
         let expectation =
             XCTestExpectation(description: "APITests_Negative.testLogout success")
@@ -44,7 +44,7 @@ class APITests_Negative: XCTestCase {
             switch response.result {
             case .success(let logout):
                 print(logout)
-                XCTFail()
+                XCTFail("Test should not get a good response, but it get")
             case .failure(let error):
                 print(error.localizedDescription)
                 expectation.fulfill()
@@ -52,5 +52,5 @@ class APITests_Negative: XCTestCase {
         }
         wait(for: [expectation], timeout: 10.0)
     }
-    
+
 }
