@@ -18,7 +18,12 @@ class GBShopUITests: XCTestCase {
 
     func testLoginScreen() throws {
         let app = XCUIApplication()
+        
+        setupSnapshot(app)
+        
         app.launch()
+        
+        snapshot("LoginScreen")
         
         let signUpButton = app.buttons["SignUp"]
         XCTAssertTrue(signUpButton.exists)
@@ -42,6 +47,8 @@ class GBShopUITests: XCTestCase {
 
         let catalogTable = app.tables["CatalogTable"]
         XCTAssertTrue(catalogTable.waitForExistence(timeout: 10))
+        
+        snapshot("ProductScreen")
     }
 
     func DISABLED_testLaunchPerformance() throws {
