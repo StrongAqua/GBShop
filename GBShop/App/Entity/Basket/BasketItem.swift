@@ -1,15 +1,15 @@
 //
-//  Product.swift
+//  BasketItem.swift
 //  GBShop
 //
-//  Created by aprirez on 4/13/21.
+//  Created by aprirez on 4/25/21.
 //
 
 import Foundation
 
-struct Product: Codable {
+struct BasketItem: Codable {
+    let quantity: Int
     let idProduct: Int
     let productName: String
     let price: Int
-
 }

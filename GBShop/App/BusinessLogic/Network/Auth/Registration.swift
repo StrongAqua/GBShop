@@ -13,7 +13,7 @@ class Registration: AbstractRequestFactory {
     let errorParser: AbstractErrorParser
     let sessionManager: Session
     let queue: DispatchQueue
-    
+
     init(
         baseUrl: URL,
         errorParser: AbstractErrorParser,
@@ -35,8 +35,7 @@ extension Registration: RegistrationRequestFactory {
         gender: String,
         creditCard: String,
         bio: String,
-        completionHandler: @escaping (AFDataResponse<RegistrationResult>) -> Void)
-    {
+        completionHandler: @escaping (AFDataResponse<RegistrationResult>) -> Void) {
         let requestModel = RegistrationRecord(
             baseUrl: baseUrl,
             userId: userId,
@@ -49,7 +48,7 @@ extension Registration: RegistrationRequestFactory {
         )
         self.request(request: requestModel, completionHandler: completionHandler)
     }
-    
+
     func changeRegistrationRecord(
         userId: Int,
         userName: String,
@@ -58,8 +57,7 @@ extension Registration: RegistrationRequestFactory {
         gender: String,
         creditCard: String,
         bio: String,
-        completionHandler: @escaping (AFDataResponse<RegistrationChangeResult>) -> Void)
-    {
+        completionHandler: @escaping (AFDataResponse<RegistrationChangeResult>) -> Void) {
         let requestModel = RegistrationChangeset(
             baseUrl: baseUrl,
             userId: userId,
@@ -88,7 +86,7 @@ extension Registration {
         let gender: String
         let creditCard: String
         let bio: String
-        
+
         var parameters: Parameters? {
             return [
                 "id_user": userId,
@@ -101,13 +99,13 @@ extension Registration {
             ]
         }
     }
-    
+
     struct RegistrationChangeset: RequestRouter {
         let baseUrl: URL
         let method: HTTPMethod = .post
         let path: String = "changeUserData"
-        //let path: String = "changeUserData.json"
-        
+        // let path: String = "changeUserData.json"
+
         let userId: Int
         let userName: String
         let password: String
@@ -115,7 +113,7 @@ extension Registration {
         let gender: String
         let creditCard: String
         let bio: String
-        
+
         var parameters: Parameters? {
             return [
                 "id_user": userId,

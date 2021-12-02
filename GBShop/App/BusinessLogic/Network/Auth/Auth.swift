@@ -13,7 +13,7 @@ class Auth: AbstractRequestFactory {
     let errorParser: AbstractErrorParser
     let sessionManager: Session
     let queue: DispatchQueue
-    
+
     init(
         baseUrl: URL,
         errorParser: AbstractErrorParser,
@@ -43,8 +43,8 @@ extension Auth {
         let baseUrl: URL
         let method: HTTPMethod = .post
         let path: String = "login"
-        //let path: String = "login.json"
-        
+        // let path: String = "login.json"
+
         let login: String
         let password: String
         var parameters: Parameters? {
@@ -58,13 +58,13 @@ extension Auth {
     struct Logout: RequestRouter {
         let baseUrl: URL
         let method: HTTPMethod = .post
-        //let path: String = "logout.json"
+        // let path: String = "logout.json"
         let path: String = "logout"
-        
+
         let userId: Int
         var parameters: Parameters? {
             return [
-                "id_user": userId,
+                "id_user": userId
             ]
         }
     }
